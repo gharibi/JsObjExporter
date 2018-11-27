@@ -1,0 +1,21 @@
+{
+  "name": "csv-js",
+  "description": "A javascript based plugin to generate CSV out of array of objects and json.",
+  "main": "src/index.js",
+  "authors": [
+    "Arash Gharibi <arash_gharibi@gmx.de>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "csv.js",
+    "csvjs"
+  ],
+  "homepage": "https://github.com/gharibi",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

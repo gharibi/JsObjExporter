@@ -1,0 +1,41 @@
+<html>
+<script src='./dist/csvjs.min.js'></script>
+<script type="text/javascript">
+
+  function json2csv() {
+    var data = [];
+    for (let i = 0; i <= 1000; i++) {
+      data.push({
+        test1: createRandomString(),
+        test2: createRandomString()
+      });
+    }
+
+    csvJS({
+      exportable: data
+    })
+  }
+
+  function createRandomString() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+  }
+</script>
+
+<body>
+  <section id="test" class="test">
+    <h1>CSV.js Test Page</h1>
+    <p>
+      <button onClick='json2csv();'>
+        Export Json to CSV
+      </button>
+    </p>
+  </section>
+</body>
+
+</html>
