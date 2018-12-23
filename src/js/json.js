@@ -1,3 +1,5 @@
+var Blob = require('blob')
+
 export default {
   export: (params) => {
     json2csv(params.headers, params.exportable, params.fileName)
