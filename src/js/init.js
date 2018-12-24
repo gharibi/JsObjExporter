@@ -1,11 +1,11 @@
 'use strict'
 
-import json from './json'
+import obj from './obj'
 
 export default {
   init () {
     let params = {
-      type: 'json',
+      type: 'object',
       headers: null,
       exportable: null,
       fileName: 'export.csv'
@@ -13,7 +13,7 @@ export default {
 
     // Check if an exportable document or object was supplied
     let args = arguments[0]
-    if (args === undefined) throw new Error('csvJS expects at least 1 exportable!')
+    if (args === undefined) throw new Error('obj2csv expects at least 1 exportable!')
 
     // Process parameters
     switch (typeof args) {
@@ -34,14 +34,14 @@ export default {
     if (!params.type || typeof params.type !== 'string') {
       throw new Error('Invalid exportable type!')
     }
-    if (params.type !== 'json') {
-      throw new Error('Invalid exportable type. Available types is "json".')
+    if (params.type !== 'object') {
+      throw new Error('Invalid exportable type. Available types is "object".')
     }
 
     // Check exportable type
     switch (params.type) {
-      case 'json':
-        json.export(params)
+      case 'object':
+        obj.export(params)
         break
     }
   }

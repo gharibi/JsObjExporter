@@ -12,7 +12,9 @@
     }
 
     obj2csv({
-      exportable: data
+      type: 'object',
+      exportable: data,
+      headers: ['header 1', 'header 2']
     })
   }
 
@@ -29,10 +31,10 @@
 
 <body>
   <section id="test" class="test">
-    <h1>CSV.js Test Page</h1>
+    <h1>Object to CSV (obj2csv) Test Page</h1>
     <p>
       <button onClick='object2csv();'>
-        Export Json to CSV
+        Export Object to CSV
       </button>
     </p>
   </section>
