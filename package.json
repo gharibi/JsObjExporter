@@ -2,7 +2,7 @@
   "name": "object-exporter",
   "homepage": "https://github.com/gharibi",
   "description": "A javascript based plugin to generate CSV or XLS/XLSX out of an object.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "dist/objectexporter.min.js",
   "repository": "https://github.com/gharibi/JsObjExporter",
   "license": "MIT",
