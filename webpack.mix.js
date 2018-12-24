@@ -1,10 +1,10 @@
 const { mix } = require('laravel-mix')
 
-mix.js('src/index.js', 'dist/obj2csv.min.js')
+mix.js('src/index.js', 'dist/objectexporter.min.js')
 
 mix.webpackConfig({
   output: {
-    library: 'object-to-csv',
+    library: 'object-exporter',
     libraryTarget: 'umd',
     umdNamedDefine: true
   }

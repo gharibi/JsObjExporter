@@ -1,10 +1,10 @@
 {
-  "name": "obj2csv",
+  "name": "object-exporter",
   "homepage": "https://github.com/gharibi",
-  "description": "A javascript based plugin to generate CSV out of an object.",
-  "version": "2.0.3",
-  "main": "dist/obj2csv.js",
-  "repository": "https://github.com/gharibi/obj2csv",
+  "description": "A javascript based plugin to generate CSV or XLS/XLSX out of an object.",
+  "version": "3.0.0",
+  "main": "dist/objectexporter.min.js",
+  "repository": "https://github.com/gharibi/JsObjExporter",
   "license": "MIT",
   "dependences": {},
   "devDependencies": {
@@ -27,10 +27,14 @@
   ],
   "standard": {
     "ignore": [
-      "/dist/obj2csv"
+      "/dist/objexporter"
     ]
   },
   "keywords": [
-    "obj2csv"
+    "objexporter",
+    "javascript",
+    "csv",
+    "xls",
+    "xlsx"
   ]
 }

@@ -1,13 +1,13 @@
 # Print.js
 
-[![Build Status](https://api.travis-ci.org/gharibi/obj2csv.svg?branch=master)](https://travis-ci.org/gharibi/obj2csv) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/obj2csv.svg)](https://www.npmjs.com/package/obj2csv)
+[![Build Status](https://api.travis-ci.org/gharibi/objectexporter.svg?branch=master)](https://travis-ci.org/gharibi/objectexporter) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/objectexporter.svg)](https://www.npmjs.com/package/objectexporter)
 
 Little JavaScript plugin to generate CSV files.
 
 
 ## Installation
 
-You can download the latest version of obj2csv from the [GitHub releases](https://github.com/gharibi/obj2csv/releases/latest).
+You can download the latest version of ObjectExporter from the [GitHub releases](https://github.com/gharibi/objectexporter/releases/latest).
 
 
 ## Configuration
@@ -23,7 +23,7 @@ In order use this plugin, following steps have to be taken:
 2. Add the following `JavaScript` code to your code to print your object:
 
 ```
-obj2csv({
+objectExporter({
     exportable: data
 })
 ```
@@ -52,4 +52,4 @@ Then in order to test the plugin, navigate to the following page:
 
 ## License
 
-obj2csv is available under the [MIT license](https://github.com/gharibi/obj2csv/blob/master/LICENSE).
+ObjectExporter is available under the [MIT license](https://github.com/gharibi/obj2csv/blob/master/LICENSE).

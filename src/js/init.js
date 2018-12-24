@@ -1,6 +1,6 @@
 'use strict'
 
-import obj from './obj'
+import csv from './csv'
 
 export default {
   init () {
@@ -41,7 +41,7 @@ export default {
     // Check exportable type
     switch (params.type) {
       case 'object':
-        obj.export(params)
+        csv.export(params)
         break
     }
   }
