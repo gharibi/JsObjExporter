@@ -2,7 +2,7 @@
   "name": "obj2csv",
   "homepage": "https://github.com/gharibi",
   "description": "A javascript based plugin to generate CSV out of an object.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "dist/obj2csv.js",
   "repository": "https://github.com/gharibi/obj2csv",
   "license": "MIT",

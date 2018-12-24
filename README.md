@@ -23,7 +23,7 @@ In order use this plugin, following steps have to be taken:
 2. Add the following `JavaScript` code to your code to print your object:
 
 ```
-csvJS({
+obj2csv({
     exportable: data
 })
 ```
