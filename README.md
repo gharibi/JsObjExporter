@@ -14,7 +14,7 @@ You can download the latest version of ObjectExporter from the [GitHub releases]
 
 In order use this plugin, following steps have to be taken:
 
-1. Add the reference to the plugin in your `HTML':
+1. Add the reference to the plugin in your `HTML`:
 
 ```
 <script src='./dist/objectexporter.min.js'></script>
