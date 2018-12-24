@@ -1,10 +1,10 @@
-import 'csv-js/dist/exporter';
+import 'object-to-csv/dist/exporter';
 
 export interface Configuration {
     exportable: any;
     type?: string;
 }
 
-declare var csvJS: (params: string | Configuration) => void;
+declare var obj2csv: (params: string | Configuration) => void;
 
-export default csvJS;
+export default obj2csv;

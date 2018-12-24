@@ -1,10 +1,10 @@
 {
-  "name": "csv-js",
+  "name": "obj2csv",
   "homepage": "https://github.com/gharibi",
-  "description": "A javascript based plugin to generate CSV out of array of objects and json.",
+  "description": "A javascript based plugin to generate CSV out of an object.",
   "version": "1.0.0",
-  "main": "dist/csvjs.js",
-  "repository": "https://github.com/gharibi/CSV.js",
+  "main": "dist/obj2csv.js",
+  "repository": "https://github.com/gharibi/obj2csv",
   "license": "MIT",
   "dependences": {},
   "devDependencies": {
@@ -20,14 +20,16 @@
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "author": "Arash Gharibi <arash_gharibi@gmx.de>",
+  "author": "Dr. Arash Gharibi <arash_gharibi@gmx.de>",
+  "contributors": [
+    "Peng Wang <peng_wang@web.de>"
+  ],
   "standard": {
     "ignore": [
-      "/dist/csv.js"
+      "/dist/obj2csv"
     ]
   },
   "keywords": [
-    "csvjs",
-    "csv.js"
+    "obj2csv"
   ]
 }

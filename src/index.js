@@ -1,9 +1,9 @@
 import exporter from './js/init'
 
-const csvjs = exporter.init
+const obj2csv = exporter.init
 
 if (typeof window !== 'undefined') {
-  window.csvJS = csvjs
+  window.obj2csv = obj2csv
 }
 
-export default csvjs
+export default obj2csv

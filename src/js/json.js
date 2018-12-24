@@ -2,7 +2,7 @@ var Blob = require('blob')
 
 export default {
   export: (params) => {
-    json2csv(params.headers, params.exportable, params.fileName)
+    object2csv(params.headers, params.exportable, params.fileName)
   }
 }
 
@@ -12,7 +12,7 @@ export default {
  * @param  {json} exportable the records of csv file.
  * @param  {string} fileName the title of the file which needs to be exported.
  */
-function json2csv (headers, exportable, fileName) {
+function object2csv (headers, exportable, fileName) {
   if (headers) {
     exportable.unshift(headers)
   }

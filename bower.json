@@ -1,14 +1,14 @@
 {
-  "name": "csv-js",
-  "description": "A javascript based plugin to generate CSV out of array of objects and json.",
+  "name": "obj2csv",
+  "description": "A javascript based plugin to generate CSV out of an object.",
   "main": "src/index.js",
   "authors": [
-    "Arash Gharibi <arash_gharibi@gmx.de>"
+    "Dr. Arash Gharibi <arash_gharibi@gmx.de>",
+    "Peng Wang <peng_wang@web.de>"
   ],
   "license": "MIT",
   "keywords": [
-    "csv.js",
-    "csvjs"
+    "obj2csv"
   ],
   "homepage": "https://github.com/gharibi",
   "ignore": [

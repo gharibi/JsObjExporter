@@ -1,8 +1,8 @@
 <html>
-<script src='./dist/csvjs.min.js'></script>
+<script src='./dist/obj2csv.min.js'></script>
 <script type="text/javascript">
 
-  function json2csv() {
+  function object2csv() {
     var data = [];
     for (let i = 0; i <= 1000; i++) {
       data.push({
@@ -11,7 +11,7 @@
       });
     }
 
-    csvJS({
+    obj2csv({
       exportable: data
     })
   }
@@ -31,7 +31,7 @@
   <section id="test" class="test">
     <h1>CSV.js Test Page</h1>
     <p>
-      <button onClick='json2csv();'>
+      <button onClick='object2csv();'>
         Export Json to CSV
       </button>
     </p>

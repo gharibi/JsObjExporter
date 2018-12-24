@@ -1,13 +1,13 @@
 # Print.js
 
-[![Build Status](https://api.travis-ci.org/gharibi/CSV.js.svg?branch=master)](https://travis-ci.org/gharibi/CSV.js) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/csv-js.svg)](https://www.npmjs.com/package/csv-js)
+[![Build Status](https://api.travis-ci.org/gharibi/obj2csv.svg?branch=master)](https://travis-ci.org/gharibi/obj2csv) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/csv-js.svg)](https://www.npmjs.com/package/csv-js)
 
 Little JavaScript plugin to generate CSV files.
 
 
 ## Installation
 
-You can download the latest version of CSV.js from the [GitHub releases](https://github.com/gharibi/CSV.js/releases/latest).
+You can download the latest version of obj2csv from the [GitHub releases](https://github.com/gharibi/obj2csv/releases/latest).
 
 
 ## Configuration
@@ -52,4 +52,4 @@ Then in order to test the plugin, navigate to the following page:
 
 ## License
 
-CSV.js is available under the [MIT license](https://github.com/gharibi/CSV.js/blob/master/LICENSE).
+obj2csv is available under the [MIT license](https://github.com/gharibi/obj2csv/blob/master/LICENSE).
