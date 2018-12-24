@@ -7,9 +7,9 @@ export default {
 }
 
 /**
- * Function to export the json data as csv.
- * @param  {json} headers the columns of the csv file.
- * @param  {json} exportable the records of csv file.
+ * Function to export the object as csv.
+ * @param  {array} headers the columns of the csv file.
+ * @param  {object} exportable the records of csv file.
  * @param  {string} fileName the title of the file which needs to be exported.
  */
 function exportObject2CSV (headers, exportable, fileName) {

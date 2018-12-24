@@ -17,6 +17,22 @@
     })
   }
 
+  function object2xls() {
+    var data = [];
+    for (let i = 0; i <= 1000; i++) {
+      data.push({
+        test1: createRandomString(),
+        test2: createRandomString()
+      });
+    }
+    objectExporter({
+      type: 'xls',
+      exportable: data,
+      headers: ['header 1', 'header 2'],
+      fileName: 'sample_excel'
+    })
+  }
+
   function createRandomString() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -33,8 +49,12 @@
       <button onClick='object2csv();'>
         Export Object to CSV
       </button>
+      <button onClick='object2xls();'>
+        Export Object to XLS
+      </button>
     </p>
   </section>
+
 </body>
 
 </html>
