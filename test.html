@@ -10,9 +10,8 @@
         test2: createRandomString()
       });
     }
-
     objectExporter({
-      type: 'object',
+      type: 'csv',
       exportable: data,
       headers: ['header 1', 'header 2']
     })
@@ -21,17 +20,15 @@
   function createRandomString() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
     for (var i = 0; i < 5; i++)
       text += possible.charAt(Math.floor(Math.random() * possible.length));
-
     return text;
   }
 </script>
 
 <body>
   <section id="test" class="test">
-    <h1>Object to CSV (obj2csv) Test Page</h1>
+    <h1>Object Exporter Test Page</h1>
     <p>
       <button onClick='object2csv();'>
         Export Object to CSV

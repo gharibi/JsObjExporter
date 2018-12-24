@@ -16,10 +16,11 @@ function exportObject2CSV (headers, exportable, fileName) {
   if (headers) {
     exportable.unshift(headers)
   }
+
   // Convert Object to JSON
   let jsonObject = JSON.stringify(exportable)
   let csv = convert2csv(jsonObject)
-  let exportFileName = fileName
+  let exportFileName = fileName + '.csv'
   let blob = new Blob([csv], {
     type: 'text/csv;charset=utf-8;'
   })

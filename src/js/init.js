@@ -1,6 +1,7 @@
 'use strict'
 
 import csv from './csv'
+import xls from './xls'
 
 export default {
   init () {
@@ -8,7 +9,7 @@ export default {
       type: 'object',
       headers: null,
       exportable: null,
-      fileName: 'export.csv'
+      fileName: 'export'
     }
 
     // Check if an exportable document or object was supplied
@@ -32,16 +33,19 @@ export default {
       throw new Error('Invalid exportable!')
     }
     if (!params.type || typeof params.type !== 'string') {
-      throw new Error('Invalid exportable type!')
+      throw new Error('Invalid exportable type! only string type is acceptable!')
     }
-    if (params.type !== 'object') {
-      throw new Error('Invalid exportable type. Available types is "object".')
+    if (params.type.toLowerCase() !== 'csv' && params.type.toLowerCase() !== 'xls') {
+      throw new Error('Invalid exportable type. Available types are "CSV" and "XLS".')
     }
 
     // Check exportable type
     switch (params.type) {
-      case 'object':
+      case 'csv':
         csv.export(params)
+        break
+      case 'xls':
+        xls.export(params)
         break
     }
   }
