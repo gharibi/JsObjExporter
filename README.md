@@ -41,7 +41,8 @@ objectExporter({
     headers: [header 1, header 2, ..., header n], // The column headers
     fileName: 'fileNameWithoutExtension', // The name of the file which will be exported
     headerStyle: 'cssStyle', // The style which needs to be applied to the column headers,
-    cellStyle: 'cssStyle' // The style which needs to be applied to each of the cells excluding the headers
+    cellStyle: 'cssStyle', // The style which needs to be applied to each of the cells excluding the headers
+    sheetName: 'sheetNameForExportedFile' // The sheet name containing the exported exportables
 })
 ```
 

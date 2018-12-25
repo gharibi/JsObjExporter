@@ -1,6 +1,6 @@
 export default {
   export: (params) => {
-    exportObject2XLS(params.headers, params.exportable, params.fileName, params.headerStyle, params.cellStyle)
+    exportObject2XLS(params.headers, params.exportable, params.fileName, params.headerStyle, params.cellStyle, params.sheetName)
   }
 }
 
@@ -21,8 +21,9 @@ let template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x=
  * @param  {string} fileName the title of the file which needs to be exported.
  * @param  {string} headerStyle the style which can be applied to the headers.
  * @param  {string} cellStyle the style which can be applied to the cells.
+ * @param  {string} the excel sheet name which needs to be applied to the exported xls file.
  */
-function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle) {
+function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle, sheetName) {
   // Construct the html structure for the provided exportable
   let dataset = null
 
@@ -43,7 +44,7 @@ function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle
   }
 
   // Push the file for being downloaded
-  let ctx = { worksheet: 'Worksheet', table: dataset }
+  let ctx = { worksheet: sheetName, table: dataset }
   var a = document.createElement('a')
   a.href = uri + base64(format(template, ctx))
   a.download = fileName + '.xls'
