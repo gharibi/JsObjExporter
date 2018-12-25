@@ -1,6 +1,6 @@
 export default {
   export: (params) => {
-    exportObject2XLS(params.headers, params.exportable, params.fileName)
+    exportObject2XLS(params.headers, params.exportable, params.fileName, params.headerStyle, params.cellStyle)
   }
 }
 
@@ -19,15 +19,17 @@ let template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x=
  * @param  {array} headers the columns of the csv file.
  * @param  {object} exportable the records of csv file.
  * @param  {string} fileName the title of the file which needs to be exported.
+ * @param  {string} headerStyle the style which can be applied to the headers.
+ * @param  {string} cellStyle the style which can be applied to the cells.
  */
-function exportObject2XLS (headers, exportable, fileName) {
+function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle) {
   // Construct the html structure for the provided exportable
   let dataset = null
 
   // Construct the table headers
   dataset = '<tr>'
   for (let i = 0; i < headers.length; i++) {
-    dataset += '<th>' + headers[i] + '</th>'
+    dataset += '<th style="' + headerStyle + '">' + headers[i] + '</th>'
   }
   dataset += '</tr>'
 
@@ -35,7 +37,7 @@ function exportObject2XLS (headers, exportable, fileName) {
   for (let j = 0; j < exportable.length; j++) {
     dataset += '<tr>'
     for (let k = 0; k < Object.keys(exportable[j]).length; k++) {
-      dataset += '<td>' + exportable[j][Object.keys(exportable[j])[k]] + '</td>'
+      dataset += '<td style="' + cellStyle + '">' + exportable[j][Object.keys(exportable[j])[k]] + '</td>'
     }
     dataset += '</tr>'
   }

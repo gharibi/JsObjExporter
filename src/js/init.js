@@ -9,7 +9,9 @@ export default {
       type: 'object',
       headers: null,
       exportable: null,
-      fileName: 'export'
+      fileName: 'export',
+      headerStyle: null,
+      cellStyle: null
     }
 
     // Check if an exportable document or object was supplied
@@ -23,6 +25,8 @@ export default {
         params.type = typeof args.type !== 'undefined' ? args.type : params.type
         params.headers = typeof args.headers !== 'undefined' ? args.headers : params.headers
         params.fileName = typeof args.fileName !== 'undefined' ? args.fileName : params.fileName
+        params.headerStyle = typeof args.headerStyle !== 'undefined' ? args.headerStyle : params.headerStyle
+        params.cellStyle = typeof args.cellStyle !== 'undefined' ? args.cellStyle : params.cellStyle
         break
       default:
         throw new Error('Unexpected argument type! Expected "object", got ' + typeof args)
