@@ -8,18 +8,19 @@
   "license": "MIT",
   "dependences": {},
   "devDependencies": {
-    "cross-env": "^5.2.0",
-    "laravel-mix": "^2.1.14",
-    "standard": "^12.0.1"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-es2015": "^6.24.1",
+    "install": "^0.12.2",
+    "npm": "^6.5.0",
+    "uglifyjs-webpack-plugin": "^2.1.0",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "test": "standard",
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "author": "Dr. Arash Gharibi <arash_gharibi@gmx.de>",
   "contributors": [
@@ -27,7 +28,7 @@
   ],
   "standard": {
     "ignore": [
-      "/dist/objexporter"
+      "/dist/objectexporter.min.js"
     ]
   },
   "keywords": [
