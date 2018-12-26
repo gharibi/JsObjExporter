@@ -6,9 +6,7 @@ A simple and straightforward javascript library for generating CSV and XLS out o
 
 ## Example
 
-Please use the example below to test this library.
-<iframe src='examples/example.html' frameBorder="0" width='100%' height='60%'></iframe>
-
+Please use the following example to test this library: [JsObjectExporter Example Page](http://gharibi.github.io/JsObjExporter/examples/example.html)
 
 ## Installation
 
@@ -53,6 +51,7 @@ objectExporter({
 
 ### Aurguments description
 ObjectExporter currently supports the below arguments:
+
 | Argument | Data Type | Required? | Default Value | Acceptable Values | Description | Applicable to |
 | - | - | - | - | - | - | - |
 | exportable | array of objects | yes | no default | `[{col1: value 1, col2: value 2},..., {col n: value n, col n+1: value n+1}]` | This is the array containing all of the objects which need to be exported. | csv and xls |
