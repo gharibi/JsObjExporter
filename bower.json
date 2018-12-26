@@ -1,6 +1,6 @@
 {
   "name": "object-exporter",
-  "description": "A javascript based plugin to generate CSV or XLS/XLSX out of an object.",
+  "description": "A javascript library to generate CSV or XLS/XLSX out of an object on the frontend.",
   "main": "src/index.js",
   "authors": [
     "Dr. Arash Gharibi <arash_gharibi@gmx.de>",
@@ -9,17 +9,16 @@
   "license": "MIT",
   "keywords": [
     "objexporter",
-    "javascript",
+    "object-exporter",
     "csv",
     "xls",
-    "xlsx"
+    "xlsx",
+    "javascript-csv",
+    "javascript-xls"
   ],
   "homepage": "https://github.com/gharibi",
   "ignore": [
-    "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "dist"
   ]
 }

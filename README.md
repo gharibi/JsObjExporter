@@ -6,7 +6,7 @@ A simple and straightforward javascript library for generating CSV and XLS out o
 
 ## Example
 
-Please use the following example to test this library: [JsObjectExporter Example Page](http://gharibi.github.io/JsObjExporter/examples/example.html)[![install size](https://packagephobia.now.sh/badge?p=object-exporter)](https://packagephobia.now.sh/result?p=object-exporter)
+Please use the following example to test this library: [JsObjectExporter Example Page](http://gharibi.github.io/JsObjExporter/examples/example.html)
 
 ## Installation
 
