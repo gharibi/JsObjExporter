@@ -1,8 +1,13 @@
-# JavaScript Object Exporter for exporting CSV or XLS
+# :dizzy: JavaScript CSV and XLS generator :dizzy:
 
 [![Build Status](https://api.travis-ci.org/gharibi/JsObjExporter.svg?branch=master)](https://travis-ci.org/gharibi/JsObjExporter) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![Downloads/week](https://img.shields.io/npm/dw/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) 
 
-A little JavaScript plugin to generate CSV and XLS files.
+A simple and straightforward javascript library for generating CSV and XLS out of objects.
+
+## Example
+
+Please use the example below to test this library.
+<iframe src='examples/example.html' frameBorder="0" width='100%' height='60%'></iframe>
 
 
 ## Installation
@@ -46,9 +51,21 @@ objectExporter({
 })
 ```
 
-##### Setting up a DEV environment for contribution
+### Aurguments description
+ObjectExporter currently supports the below arguments:
+| Argument | Data Type | Required? | Default Value | Acceptable Values | Description | Applicable to |
+| - | - | - | - | - | - | - |
+| exportable | array of objects | yes | no default | `[{col1: value 1, col2: value 2},..., {col n: value n, col n+1: value n+1}]` | This is the array containing all of the objects which need to be exported. | csv and xls |
+| type | string | yes | no default | csv or xls | This specifies the file type for the export. | csv and xls |
+| headers | array | no | no default | `[header 1, header 2, ..., header n]` | This specifies the file type for the export. | xls |
+| fileName | string | no | export | any acceptable string for the file name | This specifies the name for the export. | csv and xls |
+| headerStyle | string | no | font-size:16px; font-weight:bold; | CSS style | This specifies the style for the exported headers. | xls |
+| cellStyle | string | no | font-size:14px; | CSS style | This specifies the style for the exported cells. | xls |
+| sheetName | string | no | worksheet | any string | This specifies the sheet name for the excel file. | xls |
 
-In order to have this project installed as development environment, follow the below steps:
+## Contribution
+
+In order to have this project installed in development environment for the contribution purpose, follow the below steps:
 
 1. Install the required packages by:
 ```

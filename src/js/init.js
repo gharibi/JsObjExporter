@@ -10,8 +10,8 @@ export default {
       headers: null,
       exportable: null,
       fileName: 'export',
-      headerStyle: null,
-      cellStyle: null,
+      headerStyle: 'font-size:16px; font-weight:bold;',
+      cellStyle: 'font-size:14px;',
       sheetName: 'worksheet'
     }
 
