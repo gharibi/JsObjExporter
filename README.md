@@ -85,7 +85,7 @@ httpserver
 Then in order to test the plugin, navigate to the following page:
 `http://localhost:8080/test.html`
 
-4. Make you changes.
+4. Make your changes.
 
 5. Before pushing your code, make sure your code style is compatible:
 ```
