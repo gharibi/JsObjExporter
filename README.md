@@ -2,11 +2,11 @@
 
 [![Build Status](https://api.travis-ci.org/gharibi/JsObjExporter.svg?branch=master)](https://travis-ci.org/gharibi/JsObjExporter) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![Downloads/week](https://img.shields.io/npm/dw/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![install size](https://packagephobia.now.sh/badge?p=object-exporter)](https://packagephobia.now.sh/result?p=object-exporter)
 
-A simple and straightforward javascript library for generating CSV and XLS out of objects.
+A simple and quick javascript library for generating CSV and XLS in the frontend.
 
 ## Example
 
-Please use the following example to test this library: [JsObjectExporter Example Page](http://gharibi.github.io/JsObjExporter/examples/example.html)
+Please navigate to the following example to test this library: [Example Page](http://gharibi.github.io/JsObjExporter/examples/example.html)
 
 ## Installation
 
@@ -15,11 +15,11 @@ You can download the latest version of ObjectExporter from the [GitHub releases]
 
 ## Configuration
 
-In order use this plugin, follow the below steps:
+In order use this library, follow the below steps:
 
-1. Download the plugin.
+1. Download the library.
 
-2. Add the reference to the plugin in your `HTML` file:
+2. Add the reference to the library in your `HTML` file:
 
 ```
 <script src='./dist/objectexporter.min.js'></script>
@@ -64,33 +64,43 @@ ObjectExporter currently supports the below arguments:
 
 ## Contribution
 
-In order to have this project installed in development environment for the contribution purpose, follow the below steps:
+Any contribution is always appreciated! :thumbsup: :thumbsup: :thumbsup:
 
-1. Install the required packages by:
+In order to have this project installed in your development environment for the contribution purpose, follow the below steps:
+
+1. Fork this repository.
+
+2. Clone your forked repo. Then navigate to the downloaded folder and get the required packages for the library by:
 ```
 npm install
 ```
 
-2. Build the plugin locally by:
+3. Build the library locally by:
 ```
 npm run watch
 ```
 
-3. Browse the test.html to make sure the plugin is working fine:
+4. Check `test.html` under the example folder to test the library:
 ```
 npm install httpserver -g
 httpserver
 ```
 
-Then in order to test the plugin, navigate to the following page:
+Then navigate to:
 `http://localhost:8080/test.html`
 
-4. Make your changes.
+5. Now make your changes in the library.
 
-5. Before pushing your code, make sure your code style is compatible:
+6. Keep checking `test.html` after any changes and make sure the library is working fine. In case you add new features, feel free to add/modify tests:
+
+7. Once you are done, check your code style by:
 ```
 npm run test
 ```
+
+In case there are issues, please resolve them before pushing the code.
+
+8. Well done! now push your code and make a pull request. :rocket:
 
 ## License
 
