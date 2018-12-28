@@ -25,27 +25,36 @@ let template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x=
  */
 function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle, sheetName) {
   // Construct the html structure for the provided exportable
-  let dataset = null
+  let dataset = ''
 
-  // Construct the table headers
-  dataset = '<tr>'
-  for (let i = 0; i < headers.length; i++) {
-    dataset += '<th style="' + headerStyle + '">' + headers[i] + '</th>'
+  // Check if the provided parameters include header
+  if (headers) {
+    // Construct the table headers
+    dataset += '<tr>'
+    for (let i = 0; i < headers.length; i++) {
+      dataset += '<th style="' + headerStyle + '">' + headers[i] + '</th>'
+    }
+    dataset += '</tr>'
   }
-  dataset += '</tr>'
 
   // Construct the body elements
   for (let j = 0; j < exportable.length; j++) {
-    dataset += '<tr>'
+    dataset += '<tr style="' + cellStyle + '">'
     for (let k = 0; k < Object.keys(exportable[j]).length; k++) {
-      dataset += '<td style="' + cellStyle + '">' + exportable[j][Object.keys(exportable[j])[k]] + '</td>'
+      // Check if the input string is HTML, if so, do not add the cell tags
+      let cellContents = exportable[j][Object.keys(exportable[j])[k]]
+      if (/<[a-z][\s\S]*>/i.test(cellContents) === true) {
+        dataset += cellContents
+      } else {
+        dataset += '<td>' + cellContents + '</td>'
+      }
     }
     dataset += '</tr>'
   }
 
   // Push the file for being downloaded
   let ctx = { worksheet: sheetName, table: dataset }
-  var a = document.createElement('a')
+  let a = document.createElement('a')
   a.href = uri + base64(format(template, ctx))
   a.download = fileName + '.xls'
   a.click()
