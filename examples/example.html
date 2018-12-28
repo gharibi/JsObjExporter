@@ -1,5 +1,6 @@
 <html>
   <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <a href="https://github.com/gharibi/JsObjExporter"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
   <script src='../dist/objectexporter.min.js'></script>
   <script src="lib/jquery-3.3.1.slim.min.js" ></script>
   <script src="lib/popper.min.js" ></script>
@@ -43,6 +44,7 @@
       let numberOfColumnsInXls = document.getElementById('numberOfColumnsInXls').value;
       let numberOfRecordsInXls = document.getElementById('numberOfRecordsInXls').value;
       let sheetNameInXls = document.getElementById('sheetNameInXls').value;
+      let contentsStyleInXls = document.getElementById('contentsStyleInXls').value;
 
       // Construct the dataset for xls
       let data = [];
@@ -67,7 +69,7 @@
         headers: headers,
         fileName: 'sample_excel',
         headerStyle: 'font-size:16px; font-weight:bold;',
-        cellStyle: 'font-size:14px;',
+        cellStyle: contentsStyleInXls,
         sheetName: sheetNameInXls
       })
     }
@@ -83,37 +85,43 @@
   <body>
       
     <div class="container">
+      <h2 style="padding: 30px 0 20px 0;">Object-Exporter Example Page</h2>
+      <p style="padding: 0 0 40px 0;">Below 2 examples illustrate how this plugin generates XLS and CSV files only from the frontend and without any communication to the backend!</p>
       <div class="row">
         <div class="col-sm-6">
-          <h3>Generate XLS</h3>
-          <p>Please adjust the below inputs to generate an example XLS file:</p>
+          <h3>export to XLS</h3>
+          <p>Please adjust the below inputs to generate a sample object and export it to XLS format:</p>
           <div class="container">
             <div class="form-group">
               <label>Number of columns in xls sheet</label>
-              <input type="text" class="form-control form-control-lg"  value=50 id="numberOfColumnsInXls">
+              <input type="text" class="form-control form-control-lg"  value=5 id="numberOfColumnsInXls">
             </div>
             <div class="form-group">
-                <label>Number of records in xls sheet</label>
-                <input type="text" class="form-control form-control-lg"  value=100 id="numberOfRecordsInXls">
+              <label>Number of records in xls sheet</label>
+              <input type="text" class="form-control form-control-lg"  value=10 id="numberOfRecordsInXls">
             </div>
             <div class="form-group">
-                <label>Worksheet Name</label>
-                <input type="text" class="form-control form-control-lg" value="Sample Worksheet" id="sheetNameInXls">
+              <label>Worksheet Name</label>
+              <input type="text" class="form-control form-control-lg" value="Sample Worksheet" id="sheetNameInXls">
+            </div>
+            <div class="form-group">
+              <label>Contents style</label>
+              <input type="text" class="form-control form-control-lg" value="color:#8866ff;" id="contentsStyleInXls">
             </div>
             <input type="button" class="btn btn-info" value="Generate XLS" onClick='object2xls();'>
           </div>
         </div>
         <div class="col-sm-6">
-          <h3>Generate CSV</h3>
-          <p>Please adjust the below inputs to generate an example CSV file:</p>
+          <h3>export to CSV</h3>
+          <p>Please adjust the below inputs to generate a sample object and export it to CSV format:</p>
           <div class="container">
             <div class="form-group">
               <label>Number of columns in CSV file</label>
-              <input type="text" class="form-control form-control-lg"  value=50 id="numberOfColumnsInCsv">
+              <input type="text" class="form-control form-control-lg"  value=5 id="numberOfColumnsInCsv">
             </div>
             <div class="form-group">
                 <label>Number of records in CSV</label>
-                <input type="text" class="form-control form-control-lg"  value=100 id="numberOfRecordsInCsv">
+                <input type="text" class="form-control form-control-lg"  value=10 id="numberOfRecordsInCsv">
             </div>
             <input type="button" class="btn btn-info" value="Generate CSV" onClick='object2csv();'>
           </div>
