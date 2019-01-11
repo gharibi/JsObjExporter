@@ -13,8 +13,18 @@ export default {
  * @param  {string} fileName the title of the file which needs to be exported.
  */
 function exportObject2CSV (headers, exportable, fileName) {
+  // Check if there is headers provided
   if (headers) {
-    exportable.unshift(headers)
+    // Check if the provided header is an arry (backward-compatibility for version below 3.3.0 - more info at: https://github.com/gharibi/JsObjExporter/issues/4)
+    if (headers[0].constructor.name !== 'Object') {
+      exportable.unshift(headers)
+    } else {
+      let headerDataset = {}
+      for (let i = 0; i < headers.length; i++) {
+        headerDataset[headers[i].name] = headers[i].alias
+      }
+      exportable.unshift(headerDataset)
+    }
   }
 
   // Convert Object to JSON

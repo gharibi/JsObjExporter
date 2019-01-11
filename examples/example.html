@@ -26,7 +26,7 @@
       for (var i = 0; i < numberOfRecordsInXls; i++) {
         var rowData = {};
         for (var j = 0; j <= numberOfColumnsInXls; j++) {
-          rowData[j] = createRandomString();
+          rowData['header_' + j] = createRandomString();
         }
         data.push(rowData);
       }
@@ -34,7 +34,11 @@
       // Construct the headers for the xls
       var headers = [];
       for (var k = 0; k < numberOfColumnsInXls; k++) {
-        headers.push('header' + k);
+        headers.push({
+          alias: 'header ' + k,
+          name: 'header_' + k,
+          flex: 1
+        });
       }
 
       // Generate the xls
@@ -59,16 +63,19 @@
       var data = [];
       for (var i = 0; i < numberOfRecordsInCsv; i++) {
         var rowData = {};
-        for (var j = 0; j <= numberOfColumnsInCsv; j++) {
-          rowData[j] = createRandomString();
+        for (var j = 0; j < numberOfColumnsInCsv; j++) {
+          rowData['header_' + j] = createRandomString();
         }
         data.push(rowData);
       }
 
       // Construct the headers for the CSV
       var headers = [];
-      for (var k = 0; k <= numberOfColumnsInCsv; k++) {
-        headers.push('header ' + k);
+      for (var k = 0; k < numberOfColumnsInCsv; k++) {
+        headers.push({
+          alias: 'header ' + k,
+          name: 'header_' + k
+        });
       }
 
       // Construct the headers for the CSV
@@ -89,8 +96,8 @@
       var data = [];
       for (var i = 0; i <= numberOfRecordsInPdf; i++) {
         var rowData = {};
-        for (var j = 0; j <= numberOfColumnsInPdf; j++) {
-          rowData[j] = createRandomString();
+        for (var j = 0; j < numberOfColumnsInPdf; j++) {
+          rowData['header_' + j] = createRandomString();
         }
         data.push(rowData);
       }
@@ -100,11 +107,11 @@
       for (var k = 0; k < numberOfColumnsInPdf; k++) {
         headers.push({
           alias: 'header ' + k,
-          name: 'header' + k,
+          name: 'header_' + k,
           flex: 1
         });
       }
-
+      
       // Generate the Pdf
       objectExporter({
         type: 'pdf',
@@ -140,7 +147,7 @@
   <div class='container'>
     <div class="jumbotron">
       <h2>Object-Exporter Example Page</h2>
-      <p>Below 2 examples illustrate how this plugin generates XLS and CSV files only from
+      <p>Below 3 examples illustrate how this plugin generates XLS, CSV and PDF only from
         the frontend and without any communication to the backend!
       </p>
     </div>
