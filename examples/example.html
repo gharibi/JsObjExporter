@@ -1,65 +1,40 @@
-<html>
-  <link rel="stylesheet" href="lib/bootstrap.min.css">
-  <a href="https://github.com/gharibi/JsObjExporter"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <title>Object-Exporter Example Page</title>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='lib/bootstrap.min.css'>
+  <a href='https://github.com/gharibi/JsObjExporter'><img style='position: absolute; top: 0; right: 0; border: 0;' src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png'
+      alt='Fork me on GitHub'></a>
   <script src='../dist/objectexporter.min.js'></script>
-  <script src="lib/jquery-3.3.1.slim.min.js" ></script>
-  <script src="lib/popper.min.js" ></script>
-  <script src="lib/bootstrap.min.js"></script>
-  
-  <script type="text/javascript">
-    
-    function object2csv() {
-
-      // Retrieve the user inputs
-      let numberOfColumnsInXls = document.getElementById('numberOfColumnsInCsv').value;
-      let numberOfRecordsInXls = document.getElementById('numberOfRecordsInCsv').value;
-
-      // Construct the dataset for CSV
-      let data = [];
-      for (let i = 0; i <= numberOfRecordsInXls; i++) {
-        let rowData = {};
-        for (let j = 0; j <= numberOfColumnsInXls; j++){
-          rowData[j] = createRandomString();
-        }
-        data.push(rowData);
-      }
-
-      // Construct the headers for the CSV
-      let headers = [];
-      for (let k = 0; k <= numberOfColumnsInXls; k++){
-        headers.push('header ' + k);
-      }
-
-      // Construct the headers for the CSV
-      objectExporter({
-        type: 'csv',
-        exportable: data,
-        headers: headers
-      })
-    }
-
+  <script src='lib/jquery-3.3.1.slim.min.js'></script>
+  <script src='lib/popper.min.js'></script>
+  <script src='lib/bootstrap.min.js'></script>
+  <script>
     function object2xls() {
 
       // Retrieve the user inputs
-      let numberOfColumnsInXls = document.getElementById('numberOfColumnsInXls').value;
-      let numberOfRecordsInXls = document.getElementById('numberOfRecordsInXls').value;
-      let sheetNameInXls = document.getElementById('sheetNameInXls').value;
-      let contentsStyleInXls = document.getElementById('contentsStyleInXls').value;
+      var numberOfColumnsInXls = document.getElementById('numberOfColumnsInXls').value;
+      var numberOfRecordsInXls = document.getElementById('numberOfRecordsInXls').value;
+      var sheetNameInXls = document.getElementById('sheetNameInXls').value;
+      var contentsStyleInXls = document.getElementById('contentsStyleInXls').value;
 
       // Construct the dataset for xls
-      let data = [];
-      for (let i = 0; i <= numberOfRecordsInXls; i++) {
-        let rowData = {};
-        for (let j = 0; j <= numberOfColumnsInXls; j++){
+      var data = [];
+      for (var i = 0; i < numberOfRecordsInXls; i++) {
+        var rowData = {};
+        for (var j = 0; j <= numberOfColumnsInXls; j++) {
           rowData[j] = createRandomString();
         }
         data.push(rowData);
       }
 
       // Construct the headers for the xls
-      let headers = [];
-      for (let k = 0; k <= numberOfColumnsInXls; k++){
-        headers.push('header ' + k);
+      var headers = [];
+      for (var k = 0; k < numberOfColumnsInXls; k++) {
+        headers.push('header' + k);
       }
 
       // Generate the xls
@@ -74,59 +49,158 @@
       })
     }
 
+    function object2csv() {
+
+      // Retrieve the user inputs
+      var numberOfColumnsInCsv = document.getElementById('numberOfColumnsInCsv').value;
+      var numberOfRecordsInCsv = document.getElementById('numberOfRecordsInCsv').value;
+
+      // Construct the dataset for CSV
+      var data = [];
+      for (var i = 0; i < numberOfRecordsInCsv; i++) {
+        var rowData = {};
+        for (var j = 0; j <= numberOfColumnsInCsv; j++) {
+          rowData[j] = createRandomString();
+        }
+        data.push(rowData);
+      }
+
+      // Construct the headers for the CSV
+      var headers = [];
+      for (var k = 0; k <= numberOfColumnsInCsv; k++) {
+        headers.push('header ' + k);
+      }
+
+      // Construct the headers for the CSV
+      objectExporter({
+        type: 'csv',
+        exportable: data,
+        headers: headers
+      })
+    }
+
+    function object2pdf() {
+
+      // Retrieve the user inputs
+      var numberOfColumnsInPdf = document.getElementById('numberOfColumnsInPdf').value;
+      var numberOfRecordsInPdf = document.getElementById('numberOfRecordsInPdf').value;
+
+      // Construct the dataset for Pdf
+      var data = [];
+      for (var i = 0; i <= numberOfRecordsInPdf; i++) {
+        var rowData = {};
+        for (var j = 0; j <= numberOfColumnsInPdf; j++) {
+          rowData[j] = createRandomString();
+        }
+        data.push(rowData);
+      }
+
+      // Construct the headers for the Pdf
+      var headers = [];
+      for (var k = 0; k < numberOfColumnsInPdf; k++) {
+        headers.push({
+          alias: 'header ' + k,
+          name: 'header' + k,
+          flex: 1
+        });
+      }
+
+      // Generate the Pdf
+      objectExporter({
+        type: 'pdf',
+        exportable: data,
+        headers: headers,
+        fileName: 'sample_excel',
+        headerStyle: 'font-weight: bold; padding: 5px; border: 1px solid #dddddd;',
+        cellStyle: 'border: 1px solid lightgray; margin-bottom: -1px;'
+      })
+    }
+
     function createRandomString() {
-      var text = "";
-      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var text = '';
+      var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
       for (var i = 0; i < 5; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length));
       return text;
     }
+
+    // Add the eventListeners for the buttons
+    window.onload = function () {
+      document.getElementById('object2xlsBtnId').onclick = function click() {
+        object2xls();
+      }
+      document.getElementById('object2csvBtnId').onclick = function click() {
+        object2csv();
+      }
+      document.getElementById('object2pdfBtnId').onclick = function click() {
+        object2pdf();
+      }
+    }
   </script>
-  <body>
-      
-    <div class="container">
-      <h2 style="padding: 30px 0 20px 0;">Object-Exporter Example Page</h2>
-      <p style="padding: 0 0 40px 0;">Below 2 examples illustrate how this plugin generates XLS and CSV files only from the frontend and without any communication to the backend!</p>
-      <div class="row">
-        <div class="col-sm-6">
-          <h3>export to XLS</h3>
-          <p>Please adjust the below inputs to generate a sample object and export it to XLS format:</p>
-          <div class="container">
-            <div class="form-group">
-              <label>Number of columns in xls sheet</label>
-              <input type="text" class="form-control form-control-lg"  value=5 id="numberOfColumnsInXls">
-            </div>
-            <div class="form-group">
-              <label>Number of records in xls sheet</label>
-              <input type="text" class="form-control form-control-lg"  value=10 id="numberOfRecordsInXls">
-            </div>
-            <div class="form-group">
-              <label>Worksheet Name</label>
-              <input type="text" class="form-control form-control-lg" value="Sample Worksheet" id="sheetNameInXls">
-            </div>
-            <div class="form-group">
-              <label>Contents style</label>
-              <input type="text" class="form-control form-control-lg" value="color:#8866ff;" id="contentsStyleInXls">
-            </div>
-            <input type="button" class="btn btn-info" value="Generate XLS" onClick='object2xls();'>
+  <div class='container'>
+    <h2 style='padding: 30px 0 20px 0;'>Object-Exporter Example Page</h2>
+    <p style='padding: 0 0 40px 0;'>Below 2 examples illustrate how this plugin generates XLS and CSV files only from
+      the frontend and without any communication to the backend!</p>
+    <div class='row'>
+      <div class='col-sm-4'>
+        <h3>export to XLS</h3>
+        <p>Please adjust the below inputs to generate a sample object and export it to XLS format:</p>
+        <div class='container'>
+          <div class='form-group'>
+            <label>Number of columns in xls sheet</label>
+            <input type='text' class='form-control form-control-lg' value=5 id='numberOfColumnsInXls'>
           </div>
+          <div class='form-group'>
+            <label>Number of records in xls sheet</label>
+            <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInXls'>
+          </div>
+          <div class='form-group'>
+            <label>Worksheet Name</label>
+            <input type='text' class='form-control form-control-lg' value='Sample Worksheet' id='sheetNameInXls'>
+          </div>
+          <div class='form-group'>
+            <label>Contents style</label>
+            <input type='text' class='form-control form-control-lg' value='color:#8866ff;' id='contentsStyleInXls'>
+          </div>
+          <input type='button' class='btn btn-info' value='Generate XLS' id='object2xlsBtnId'>
         </div>
-        <div class="col-sm-6">
-          <h3>export to CSV</h3>
-          <p>Please adjust the below inputs to generate a sample object and export it to CSV format:</p>
-          <div class="container">
-            <div class="form-group">
-              <label>Number of columns in CSV file</label>
-              <input type="text" class="form-control form-control-lg"  value=5 id="numberOfColumnsInCsv">
-            </div>
-            <div class="form-group">
-                <label>Number of records in CSV</label>
-                <input type="text" class="form-control form-control-lg"  value=10 id="numberOfRecordsInCsv">
-            </div>
-            <input type="button" class="btn btn-info" value="Generate CSV" onClick='object2csv();'>
+      </div>
+      <div class='col-sm-4'>
+        <h3>export to CSV</h3>
+        <p>Please adjust the below inputs to generate a sample object and export it to CSV format:</p>
+        <div class='container'>
+          <div class='form-group'>
+            <label>Number of columns in CSV file</label>
+            <input type='text' class='form-control form-control-lg' value=5 id='numberOfColumnsInCsv'>
           </div>
+          <div class='form-group'>
+            <label>Number of records in CSV</label>
+            <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInCsv'>
+          </div>
+          <input type='button' class='btn btn-info' value='Generate CSV' id='object2csvBtnId'>
+        </div>
+      </div>
+      <div class='col-sm-4'>
+        <h3>export to PDF</h3>
+        <p>Please adjust the below inputs to generate a sample PDF file:</p>
+        <div class='container'>
+          <div class='form-group'>
+            <label>Number of columns in PDF file</label>
+            <input type='text' class='form-control form-control-lg' value=5 id='numberOfColumnsInPdf'>
+          </div>
+          <div class='form-group'>
+            <label>Number of records in PDF</label>
+            <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInPdf'>
+          </div>
+          <div class='form-group'>
+            <label>Number of tables to be placed in PDF file</label>
+            <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInPdf'>
+          </div>
+          <input type='button' class='btn btn-info' value='Generate PDF' id='object2pdfBtnId'>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</head>
+
 </html>

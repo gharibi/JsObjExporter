@@ -1,3 +1,5 @@
+import { htmlTblCreater } from './el'
+
 export default {
   export: (params) => {
     exportObject2XLS(params.headers, params.exportable, params.fileName, params.headerStyle, params.cellStyle, params.sheetName)
@@ -25,32 +27,7 @@ let template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x=
  */
 function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle, sheetName) {
   // Construct the html structure for the provided exportable
-  let dataset = ''
-
-  // Check if the provided parameters include header
-  if (headers) {
-    // Construct the table headers
-    dataset += '<tr>'
-    for (let i = 0; i < headers.length; i++) {
-      dataset += '<th style="' + headerStyle + '">' + headers[i] + '</th>'
-    }
-    dataset += '</tr>'
-  }
-
-  // Construct the body elements
-  for (let j = 0; j < exportable.length; j++) {
-    dataset += '<tr style="' + cellStyle + '">'
-    for (let k = 0; k < Object.keys(exportable[j]).length; k++) {
-      // Check if the input string is HTML, if so, do not add the cell tags
-      let cellContents = exportable[j][Object.keys(exportable[j])[k]]
-      if (/<[a-z][\s\S]*>/i.test(cellContents) === true) {
-        dataset += cellContents
-      } else {
-        dataset += '<td>' + cellContents + '</td>'
-      }
-    }
-    dataset += '</tr>'
-  }
+  let dataset = htmlTblCreater('xls', headers, exportable, headerStyle, cellStyle)
 
   // Push the file for being downloaded
   let ctx = { worksheet: sheetName, table: dataset }

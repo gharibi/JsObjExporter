@@ -2,6 +2,7 @@
 
 import csv from './csv'
 import xls from './xls'
+import pdf from './pdf'
 
 export default {
   init () {
@@ -12,7 +13,9 @@ export default {
       fileName: 'export',
       headerStyle: 'font-size:16px; font-weight:bold;',
       cellStyle: 'font-size:14px;',
-      sheetName: 'worksheet'
+      sheetName: 'worksheet',
+      documentTitle: 'test document title',
+      documentTitleStyle: 'color:red;'
     }
 
     // Check if an exportable document or object was supplied
@@ -29,6 +32,8 @@ export default {
         params.headerStyle = typeof args.headerStyle !== 'undefined' ? args.headerStyle : params.headerStyle
         params.cellStyle = typeof args.cellStyle !== 'undefined' ? args.cellStyle : params.cellStyle
         params.sheetName = typeof args.sheetName !== 'undefined' ? args.sheetName : params.sheetName
+        params.documentTitle = typeof args.documentTitle !== 'undefined' ? args.documentTitle : params.documentTitle
+        params.documentTitleStyle = typeof args.documentTitleStyle !== 'undefined' ? args.documentTitleStyle : params.documentTitleStyle
         break
       default:
         throw new Error('Unexpected argument type! Expected "object", got ' + typeof args)
@@ -41,9 +46,14 @@ export default {
     if (!params.type || typeof params.type !== 'string') {
       throw new Error('Invalid exportable type! only string type is acceptable!')
     }
-    if (params.type.toLowerCase() !== 'csv' && params.type.toLowerCase() !== 'xls') {
-      throw new Error('Invalid exportable type. Available types are "CSV" and "XLS".')
+    if (params.type.toLowerCase() !== 'csv' && params.type.toLowerCase() !== 'xls' && params.type.toLowerCase() !== 'pdf') {
+      throw new Error('Invalid exportable type. Available types are "CSV", "XLS" and "pdf".')
     }
+
+    // If the exportable type is pdf, then check if the column size attribute is also specified
+    // if (params.type.toLocaleLowerCase() === 'pdf' && typeof params.exportable[0] !== 'object') {
+    //   throw new Error('For type "pdf", the exportable type should be an array containing other arrays for the purpose of supporting multiple printables!')
+    // }
 
     // Check exportable type
     switch (params.type) {
@@ -52,6 +62,9 @@ export default {
         break
       case 'xls':
         xls.export(params)
+        break
+      case 'pdf':
+        pdf.export(params)
         break
     }
   }
