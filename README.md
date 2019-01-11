@@ -55,12 +55,12 @@ ObjectExporter currently supports the below arguments:
 | Argument | Data Type | Required? | Default Value | Acceptable Values | Description | Applicable to |
 | - | - | - | - | - | - | - |
 | exportable* | array of objects | yes | no default | `[{col1: value 1, col2: value 2},..., {col n: value n, col n+1: value n+1}]` | This is the array containing all of the objects which need to be exported. | csv and xls |
-| type | string | yes | no default | csv or xls | This specifies the file type for the export. | csv and xls |
+| type | string | yes | no default | csv or xls | This specifies the file type for the export. | csv, xls and pdf |
 | headers | array | no | no default | `[header 1, header 2, ..., header n]` | This specifies the file type for the export. | xls |
-| fileName | string | no | export | any acceptable string for the file name | This specifies the name for the export. | csv and xls |
-| headerStyle | string | no | font-size:16px; font-weight:bold; | CSS style | This specifies the style for the exported headers. | xls |
-| cellStyle | string | no | font-size:14px; | CSS style | This specifies the style for the exported cells. | xls |
-| sheetName | string | no | worksheet | any string | This specifies the sheet name for the excel file. | xls |
+| fileName | string | no | export | any acceptable string for the file name | This specifies the name for the export. | csv, xls and pdf |
+| headerStyle | string | no | font-size:16px; font-weight:bold; | CSS style | This specifies the style for the exported headers. | csv, xls and pdf |
+| cellStyle | string | no | font-size:14px; | CSS style | This specifies the style for the exported cells. | xls and pdf |
+| sheetName | string | no | worksheet | any string | This specifies the sheet name for the excel file. | xls and pdf |
 * Please note that in case of PDF, the exportable has to be an array of arrays (`[[array 1], [array 2], ..., [array n]]`). This is because each array within the main array represents a table which needs to be printed out as PDF.  
 
 ## Contribution
