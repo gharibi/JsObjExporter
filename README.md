@@ -1,8 +1,8 @@
-# :dizzy: JavaScript CSV and XLS generator :dizzy:
+# :dizzy: JavaScript CSV, XLS and PDF generator :dizzy:
 
 [![Build Status](https://api.travis-ci.org/gharibi/JsObjExporter.svg?branch=master)](https://travis-ci.org/gharibi/JsObjExporter) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![Downloads/week](https://img.shields.io/npm/dw/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![install size](https://packagephobia.now.sh/badge?p=object-exporter)](https://packagephobia.now.sh/result?p=object-exporter)
 
-A simple and quick javascript library for generating CSV and XLS in the frontend.
+A simple and quick javascript library for generating CSV, XLS and PDF in the frontend.
 
 ## Example
 
@@ -17,12 +17,12 @@ You can download the latest version of ObjectExporter from the [GitHub releases]
 
 In order use this library, follow the below steps:
 
-1. Download the library.
+1. Download the latest release of the library from [GitHub releases](https://github.com/gharibi/JsObjExporter/releases/latest).
 
 2. Add the reference to the library in your `HTML` file:
 
 ```
-<script src='./dist/objectexporter.min.js'></script>
+<script src='<path>/objectexporter.min.js'></script>
 ```
 
 2. Add the following to your `JavaScript` code to print an object to CSV:
@@ -54,13 +54,14 @@ ObjectExporter currently supports the below arguments:
 
 | Argument | Data Type | Required? | Default Value | Acceptable Values | Description | Applicable to |
 | - | - | - | - | - | - | - |
-| exportable | array of objects | yes | no default | `[{col1: value 1, col2: value 2},..., {col n: value n, col n+1: value n+1}]` | This is the array containing all of the objects which need to be exported. | csv and xls |
+| exportable* | array of objects | yes | no default | `[{col1: value 1, col2: value 2},..., {col n: value n, col n+1: value n+1}]` | This is the array containing all of the objects which need to be exported. | csv and xls |
 | type | string | yes | no default | csv or xls | This specifies the file type for the export. | csv and xls |
 | headers | array | no | no default | `[header 1, header 2, ..., header n]` | This specifies the file type for the export. | xls |
 | fileName | string | no | export | any acceptable string for the file name | This specifies the name for the export. | csv and xls |
 | headerStyle | string | no | font-size:16px; font-weight:bold; | CSS style | This specifies the style for the exported headers. | xls |
 | cellStyle | string | no | font-size:14px; | CSS style | This specifies the style for the exported cells. | xls |
 | sheetName | string | no | worksheet | any string | This specifies the sheet name for the excel file. | xls |
+* Please note that in case of PDF, the exportable has to be an array of arrays (`[[array 1], [array 2], ..., [array n]]`). This is because each array within the main array represents a table which needs to be printed out as PDF.  
 
 ## Contribution
 
