@@ -138,9 +138,12 @@
     }
   </script>
   <div class='container'>
-    <h2 style='padding: 30px 0 20px 0;'>Object-Exporter Example Page</h2>
-    <p style='padding: 0 0 40px 0;'>Below 2 examples illustrate how this plugin generates XLS and CSV files only from
-      the frontend and without any communication to the backend!</p>
+    <div class="jumbotron">
+      <h2>Object-Exporter Example Page</h2>
+      <p>Below 2 examples illustrate how this plugin generates XLS and CSV files only from
+        the frontend and without any communication to the backend!
+      </p>
+    </div>
     <div class='row'>
       <div class='col-sm-4'>
         <h3>export to XLS</h3>
@@ -190,10 +193,6 @@
           </div>
           <div class='form-group'>
             <label>Number of records in PDF</label>
-            <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInPdf'>
-          </div>
-          <div class='form-group'>
-            <label>Number of tables to be placed in PDF file</label>
             <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInPdf'>
           </div>
           <input type='button' class='btn btn-info' value='Generate PDF' id='object2pdfBtnId'>
