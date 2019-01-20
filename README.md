@@ -1,5 +1,6 @@
 # :dizzy: JavaScript csv, xls, pdf and doc generator :dizzy:
 
+[![Gitter chat](https://badges.gitter.im/gharibi/JsObjectExporter.png)](https://gitter.im/JsObjectExporter/community)
 [![Build Status](https://api.travis-ci.org/gharibi/JsObjExporter.svg?branch=master)](https://travis-ci.org/gharibi/JsObjExporter) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![Downloads/week](https://img.shields.io/npm/dw/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![install size](https://packagephobia.now.sh/badge?p=object-exporter)](https://packagephobia.now.sh/result?p=object-exporter)
 
 A simple and quick javascript library for generating csv, xls, pdf and doc only on the frontend and without any need to communicate with the backend.
