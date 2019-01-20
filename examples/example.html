@@ -5,6 +5,7 @@
   <title>Object-Exporter Example Page</title>
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="shortcut icon" href="#" />
   <link rel='stylesheet' href='lib/bootstrap.min.css'>
   <a href='https://github.com/gharibi/JsObjExporter'><img style='position: absolute; top: 0; right: 0; border: 0;' src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png'
       alt='Fork me on GitHub'></a>
@@ -123,6 +124,43 @@
       })
     }
 
+    function object2doc() {
+
+      // Retrieve the user inputs
+      var numberOfColumnsInPdf = document.getElementById('numberOfColumnsInDoc').value;
+      var numberOfRecordsInPdf = document.getElementById('numberOfRecordsInDoc').value;
+
+      // Construct the dataset for Doc
+      var data = [];
+      for (var i = 0; i <= numberOfRecordsInPdf; i++) {
+        var rowData = {};
+        for (var j = 0; j < numberOfColumnsInPdf; j++) {
+          rowData['header_' + j] = createRandomString();
+        }
+        data.push(rowData);
+      }
+
+      // Construct the headers for the Doc
+      var headers = [];
+      for (var k = 0; k < numberOfColumnsInPdf; k++) {
+        headers.push({
+          alias: 'header ' + k,
+          name: 'header_' + k,
+          flex: 1
+        });
+      }
+
+      // Generate the Pdf
+      objectExporter({
+        type: 'doc',
+        exportable: data,
+        headers: headers,
+        fileName: 'sample_doc',
+        headerStyle: 'font-weight: bold; padding: 5px; border: 1px solid #dddddd;',
+        cellStyle: 'padding: 5px; border: 1px solid #dddddd;'
+      })
+    }
+    
     function createRandomString() {
       var text = '';
       var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -142,17 +180,20 @@
       document.getElementById('object2pdfBtnId').onclick = function click() {
         object2pdf();
       }
+      document.getElementById('object2docBtnId').onclick = function click() {
+        object2doc();
+      }
     }
   </script>
   <div class='container'>
     <div class="jumbotron">
       <h2>Object-Exporter Example Page</h2>
-      <p>Below 3 examples illustrate how this plugin generates XLS, CSV and PDF only from
+      <p>Below 4 examples illustrate how this plugin generates XLS, CSV, PDF and DOC only from
         the frontend and without any communication to the backend!
       </p>
     </div>
     <div class='row'>
-      <div class='col-sm-4'>
+      <div class='col-sm-3'>
         <h3>export to XLS</h3>
         <p>Please adjust the below inputs to generate a sample object and export it to XLS format:</p>
         <div class='container'>
@@ -175,7 +216,7 @@
           <input type='button' class='btn btn-info' value='Generate XLS' id='object2xlsBtnId'>
         </div>
       </div>
-      <div class='col-sm-4'>
+      <div class='col-sm-3'>
         <h3>export to CSV</h3>
         <p>Please adjust the below inputs to generate a sample object and export it to CSV format:</p>
         <div class='container'>
@@ -190,7 +231,7 @@
           <input type='button' class='btn btn-info' value='Generate CSV' id='object2csvBtnId'>
         </div>
       </div>
-      <div class='col-sm-4'>
+      <div class='col-sm-3'>
         <h3>export to PDF</h3>
         <p>Please adjust the below inputs to generate a sample PDF file:</p>
         <div class='container'>
@@ -203,6 +244,21 @@
             <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInPdf'>
           </div>
           <input type='button' class='btn btn-info' value='Generate PDF' id='object2pdfBtnId'>
+        </div>
+      </div>
+      <div class='col-sm-3'>
+        <h3>export to DOC</h3>
+        <p>Please adjust the below inputs to generate a sample MS DOC file:</p>
+        <div class='container'>
+          <div class='form-group'>
+            <label>Number of columns in DOC file</label>
+            <input type='text' class='form-control form-control-lg' value=5 id='numberOfColumnsInDoc'>
+          </div>
+          <div class='form-group'>
+            <label>Number of records in DOC</label>
+            <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInDoc'>
+          </div>
+          <input type='button' class='btn btn-info' value='Generate MS DOC' id='object2docBtnId'>
         </div>
       </div>
     </div>
