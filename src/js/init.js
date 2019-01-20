@@ -3,6 +3,7 @@
 import csv from './csv'
 import xls from './xls'
 import pdf from './pdf'
+import doc from './doc'
 
 export default {
   init () {
@@ -46,14 +47,9 @@ export default {
     if (!params.type || typeof params.type !== 'string') {
       throw new Error('Invalid exportable type! only string type is acceptable!')
     }
-    if (params.type.toLowerCase() !== 'csv' && params.type.toLowerCase() !== 'xls' && params.type.toLowerCase() !== 'pdf') {
-      throw new Error('Invalid exportable type. Available types are "CSV", "XLS" and "pdf".')
+    if (params.type.toLowerCase() !== 'csv' && params.type.toLowerCase() !== 'xls' && params.type.toLowerCase() !== 'pdf' && params.type.toLowerCase() !== 'doc') {
+      throw new Error('Invalid exportable type. Available types are "CSV", "XLS", "pdf" and "DOC".')
     }
-
-    // If the exportable type is pdf, then check if the column size attribute is also specified
-    // if (params.type.toLocaleLowerCase() === 'pdf' && typeof params.exportable[0] !== 'object') {
-    //   throw new Error('For type "pdf", the exportable type should be an array containing other arrays for the purpose of supporting multiple printables!')
-    // }
 
     // Check exportable type
     switch (params.type) {
@@ -65,6 +61,9 @@ export default {
         break
       case 'pdf':
         pdf.export(params)
+        break
+      case 'doc':
+        doc.export(params)
         break
     }
   }
