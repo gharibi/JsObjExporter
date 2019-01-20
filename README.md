@@ -1,8 +1,8 @@
-# :dizzy: JavaScript CSV, XLS and PDF generator :dizzy:
+# :dizzy: JavaScript csv, xls, pdf and doc generator :dizzy:
 
 [![Build Status](https://api.travis-ci.org/gharibi/JsObjExporter.svg?branch=master)](https://travis-ci.org/gharibi/JsObjExporter) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/v/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![Downloads/week](https://img.shields.io/npm/dw/object-exporter.svg)](https://www.npmjs.com/package/object-exporter) [![install size](https://packagephobia.now.sh/badge?p=object-exporter)](https://packagephobia.now.sh/result?p=object-exporter)
 
-A simple and quick javascript library for generating CSV, XLS and PDF in the frontend.
+A simple and quick javascript library for generating csv, xls, pdf and doc only on the frontend and without any need to communicate with the backend.
 
 ## Example
 
@@ -49,12 +49,12 @@ ObjectExporter currently supports the below arguments:
 
 | Argument | Data Type | Required? | Default Value | Acceptable Values | Description | Applicable to |
 | - | - | - | - | - | - | - |
-| exportable | array of objects | yes | no default | `[{header1: value 1, header2: value 2},..., {headern: value n, headern+1: value n+1}]` | This is the array containing all of the objects which need to be exported. | csv, xls and pdf |
-| type | string | yes | no default | csv, xls or pdf | This specifies the file type for generating the export. | csv, xls and pdf |
-| headers | array or array of objects (1) | yes | no default | `[{name: 'fieldName1', alias: 'fieldAlias1', flex: flex1}, {name: 'fieldName2', alias: 'fieldAlias2', flex: flex2}, ..., {name: 'fieldNamen', alias: 'fieldAliasn', flex: flexn}]` | This specifies the headers for the exportable. | csv, xls and pdf |
-| fileName | string | no | export | any acceptable string for the file name | This specifies the name for the export. | csv, xls and pdf |
-| headerStyle | string | no | font-size:16px; font-weight:bold; | CSS style | This specifies the style for the exported headers. | xls and pdf |
-| cellStyle | string | no | font-size:14px; | CSS style | This specifies the style for the exported cells. | xls and pdf |
+| exportable | array of objects | yes | no default | `[{header1: value 1, header2: value 2},..., {headern: value n, headern+1: value n+1}]` | This is the array containing all of the objects which need to be exported. | csv, xls, pdf and doc |
+| type | string | yes | no default | csv, xls or pdf | This specifies the file type for generating the export. | csv, xls, pdf and doc |
+| headers | array or array of objects (1) | yes | no default | `[{name: 'fieldName1', alias: 'fieldAlias1', flex: flex1}, {name: 'fieldName2', alias: 'fieldAlias2', flex: flex2}, ..., {name: 'fieldNamen', alias: 'fieldAliasn', flex: flexn}]` | This specifies the headers for the exportable. | csv, xls, pdf and doc |
+| fileName | string | no | export | any acceptable string for the file name | This specifies the name for the export. | csv, xls, pdf and doc |
+| headerStyle | string | no | font-size:16px; font-weight:bold; | CSS style | This specifies the style for the exported headers. | xls, pdf and doc |
+| cellStyle | string | no | font-size:14px; | CSS style | This specifies the style for the exported cells. | xls, pdf and doc |
 | sheetName | string | no | worksheet | any string | This specifies the sheet name for the excel file. | xls |
 
 (1) In versions older than 3.3.0, `header` was defined as an array and not an array of objects. However from version 3.3.0, the library is backward-comptible, therefore array or array of objects, both are accepted.
