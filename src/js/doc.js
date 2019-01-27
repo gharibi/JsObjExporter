@@ -23,7 +23,7 @@ function exportObject2Doc (headers, exportable, fileName, headerStyle, cellStyle
 
   // Create the bytes
   let bytes = new Uint8Array(htmlString.length)
-  for (var i = 0; i < htmlString.length; i++) {
+  for (let i = 0; i < htmlString.length; i++) {
     bytes[i] = htmlString.charCodeAt(i)
   }
 

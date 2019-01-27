@@ -1,4 +1,4 @@
-var Blob = require('blob')
+let Blob = require('blob')
 
 export default {
   export: (params) => {
@@ -40,7 +40,7 @@ function exportObject2CSV (headers, exportable, fileName) {
     let link = document.createElement('a')
     if (link.download !== undefined) {
       // Browsers that support HTML5 download attribute
-      var url = URL.createObjectURL(blob)
+      let url = URL.createObjectURL(blob)
       link.setAttribute('href', url)
       link.setAttribute('download', exportFileName)
       link.style.visibility = 'hidden'
@@ -58,9 +58,9 @@ function exportObject2CSV (headers, exportable, fileName) {
 function convert2csv (objArray) {
   let array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray
   let str = ''
-  for (var i = 0; i < array.length; i++) {
-    var line = ''
-    for (var index in array[i]) {
+  for (let i = 0; i < array.length; i++) {
+    let line = ''
+    for (let index in array[i]) {
       if (line !== '') line += ','
       line += array[i][index]
     }

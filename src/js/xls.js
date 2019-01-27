@@ -1,4 +1,5 @@
 import { htmlTblCreater } from './el'
+let Blob = require('blob')
 
 export default {
   export: (params) => {
@@ -31,8 +32,12 @@ function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle
 
   // Push the file for being downloaded
   let ctx = { worksheet: sheetName, table: dataset }
-  let a = document.createElement('a')
-  a.href = uri + base64(format(template, ctx))
-  a.download = fileName + '.xls'
-  a.click()
+  let link = document.createElement('a')
+  let exportFileName = fileName + '.xls'
+  link.setAttribute('href', uri + base64(format(template, ctx)))
+  link.setAttribute('download', exportFileName)
+  link.style.visibility = 'hidden'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }
