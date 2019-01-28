@@ -1,5 +1,4 @@
 import { htmlTblCreater } from './el'
-let Blob = require('blob')
 
 export default {
   export: (params) => {
