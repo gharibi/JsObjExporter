@@ -75,7 +75,7 @@ npm install
 
 3. Build the library locally by:
 ```
-npm run watch
+npm run build
 ```
 
 4. Check `test.html` under the example folder to test the library:
