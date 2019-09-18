@@ -1,6 +1,6 @@
 import { saveAs } from 'file-saver'
 import { htmlTblCreater } from './el'
-let Blob = require('blob')
+const Blob = require('blob')
 
 export default {
   export: (params) => {
@@ -18,17 +18,17 @@ export default {
  */
 function exportObject2Doc (headers, exportable, fileName, headerStyle, cellStyle) {
   // Create the html structured dataset
-  let dataset = htmlTblCreater('doc', headers, exportable, headerStyle, cellStyle)
-  let htmlString = '<html><body>' + dataset + '</body></html>'
+  const dataset = htmlTblCreater('doc', headers, exportable, headerStyle, cellStyle)
+  const htmlString = '<html><body>' + dataset + '</body></html>'
 
   // Create the bytes
-  let bytes = new Uint8Array(htmlString.length)
+  const bytes = new Uint8Array(htmlString.length)
   for (let i = 0; i < htmlString.length; i++) {
     bytes[i] = htmlString.charCodeAt(i)
   }
 
   // Convert the contents to blob
-  let blob = new Blob([bytes], { type: 'text/html' })
+  const blob = new Blob([bytes], { type: 'text/html' })
 
   // Save the file as doc
   saveAs(blob, fileName + '.doc')

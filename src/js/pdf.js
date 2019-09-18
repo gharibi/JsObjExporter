@@ -8,7 +8,7 @@ export default {
 
 function exportObject2PDF (documentTitle, documentTitleStyle, headers, exportable, headerStyle, cellStyle) {
   // Define a printable body element
-  let printableBody = document.createElement('iframe')
+  const printableBody = document.createElement('iframe')
 
   // Set the prontableBody to hidden
   printableBody.setAttribute('style', 'visibility: hidden; height: 0; width: 0; position: absolute;')
@@ -21,7 +21,7 @@ function exportObject2PDF (documentTitle, documentTitleStyle, headers, exportabl
   document.getElementsByTagName('body')[0].appendChild(printableBody)
 
   // Get the printable elements
-  let printableElements = document.getElementById('objectExporterPrintableBodyId')
+  const printableElements = document.getElementById('objectExporterPrintableBodyId')
 
   // Check when the printableBody is loaded successfully
   printableBody.onload = () => {

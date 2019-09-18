@@ -17,7 +17,7 @@ export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyl
       dataset += '<tr style="' + cellStyle + '">'
       for (let k = 0; k < Object.keys(exportable[j]).length - 1; k++) {
         // Check if the input string is HTML, if so, do not add the cell tags
-        let cellContents = exportable[j][Object.keys(exportable[j])[k]]
+        const cellContents = exportable[j][Object.keys(exportable[j])[k]]
         if (/<[a-z][\s\S]*>/i.test(cellContents) === true) {
           dataset += cellContents
         } else {
@@ -50,7 +50,7 @@ export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyl
       // Loop through the header items to show only the items associated with a header
       for (let k = 0; k < headers.length; k++) {
         // Check if the input string is HTML, if so, do not add the cell tags
-        let cellContents = exportable[j][headers[k].name]
+        const cellContents = exportable[j][headers[k].name]
         if (/<[a-z][\s\S]*>/i.test(cellContents) === true) {
           dataset += cellContents
         } else {

@@ -1,4 +1,4 @@
-let Blob = require('blob')
+const Blob = require('blob')
 
 export default {
   export: (params) => {
@@ -19,7 +19,7 @@ function exportObject2CSV (headers, exportable, fileName) {
     if (headers[0].constructor.name !== 'Object') {
       exportable.unshift(headers)
     } else {
-      let headerDataset = {}
+      const headerDataset = {}
       for (let i = 0; i < headers.length; i++) {
         headerDataset[headers[i].name] = headers[i].alias
       }
@@ -28,19 +28,19 @@ function exportObject2CSV (headers, exportable, fileName) {
   }
 
   // Convert Object to JSON
-  let jsonObject = JSON.stringify(exportable)
-  let csv = convert2csv(jsonObject)
-  let exportFileName = fileName + '.csv'
-  let blob = new Blob([csv], {
+  const jsonObject = JSON.stringify(exportable)
+  const csv = convert2csv(jsonObject)
+  const exportFileName = fileName + '.csv'
+  const blob = new Blob([csv], {
     type: 'text/csv;charset=utf-8;'
   })
   if (navigator.msSaveBlob) { // IE 10+
     navigator.msSaveBlob(blob, exportFileName)
   } else {
-    let link = document.createElement('a')
+    const link = document.createElement('a')
     if (link.download !== undefined) {
       // Browsers that support HTML5 download attribute
-      let url = URL.createObjectURL(blob)
+      const url = URL.createObjectURL(blob)
       link.setAttribute('href', url)
       link.setAttribute('download', exportFileName)
       link.style.visibility = 'hidden'
@@ -56,11 +56,11 @@ function exportObject2CSV (headers, exportable, fileName) {
  * @param  {object} objArray the json data which needs to be converted to an array.
  */
 function convert2csv (objArray) {
-  let array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray
+  const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray
   let str = ''
   for (let i = 0; i < array.length; i++) {
     let line = ''
-    for (let index in array[i]) {
+    for (const index in array[i]) {
       if (line !== '') line += ','
       line += array[i][index]
     }

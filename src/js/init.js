@@ -7,7 +7,7 @@ import doc from './doc'
 
 export default {
   init () {
-    let params = {
+    const params = {
       type: 'object',
       headers: null,
       exportable: null,
@@ -20,7 +20,7 @@ export default {
     }
 
     // Check if an exportable document or object was supplied
-    let args = arguments[0]
+    const args = arguments[0]
     if (args === undefined) throw new Error('obj2csv expects at least 1 exportable!')
 
     // Process parameters

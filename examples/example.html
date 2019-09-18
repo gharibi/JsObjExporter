@@ -45,6 +45,8 @@
       // Generate the xls
       objectExporter({
         type: 'xls',
+        documentTitle: document.getElementById('documentTitleInXls').value,
+        documentTitleStyle: document.getElementById('documentTitleStyleInXls').value,
         exportable: data,
         headers: headers,
         fileName: 'sample_excel',
@@ -212,6 +214,14 @@
           <div class='form-group'>
             <label>Contents style</label>
             <input type='text' class='form-control form-control-lg' value='color:#8866ff;' id='contentsStyleInXls'>
+          </div>
+          <div class='form-group'>
+            <label>Content Title</label>
+            <input type='text' class='form-control form-control-lg' value='Sample dataset;' id='documentTitleInXls'>
+          </div>
+          <div class='form-group'>
+            <label>Content Style</label>
+            <input type='text' class='form-control form-control-lg' value='color:#000; font-size: 14;' id='documentTitleStyleInXls'>
           </div>
           <input type='button' class='btn btn-info' value='Generate XLS' id='object2xlsBtnId'>
         </div>
