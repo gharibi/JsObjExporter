@@ -16,7 +16,8 @@ export default {
       cellStyle: 'font-size:14px;',
       sheetName: 'worksheet',
       documentTitle: 'test document title',
-      documentTitleStyle: 'color:red;'
+      documentTitleStyle: 'color:red;',
+      repeatHeader: true
     }
 
     // Check if an exportable document or object was supplied
@@ -35,6 +36,7 @@ export default {
         params.sheetName = typeof args.sheetName !== 'undefined' ? args.sheetName : params.sheetName
         params.documentTitle = typeof args.documentTitle !== 'undefined' ? args.documentTitle : params.documentTitle
         params.documentTitleStyle = typeof args.documentTitleStyle !== 'undefined' ? args.documentTitleStyle : params.documentTitleStyle
+        params.repeatHeader = typeof args.repeatHeader !== 'undefined' ? args.repeatHeader : params.repeatHeader
         break
       default:
         throw new Error('Unexpected argument type! Expected "object", got ' + typeof args)
@@ -49,6 +51,9 @@ export default {
     }
     if (params.type.toLowerCase() !== 'csv' && params.type.toLowerCase() !== 'xls' && params.type.toLowerCase() !== 'pdf' && params.type.toLowerCase() !== 'doc') {
       throw new Error('Invalid exportable type. Available types are "CSV", "XLS", "pdf" and "DOC".')
+    }
+    if (typeof params.repeatHeader !== 'boolean') {
+      throw new Error('Invalid value for the repeat header parameter. Available types are "true" and "false".')
     }
 
     // Check exportable type

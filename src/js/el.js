@@ -1,6 +1,11 @@
-export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyle) {
+export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyle, repeatHeader) {
   // Construct the html structure for the provided exportable
   let dataset = '<table style="border-collapse: collapse;" width="100%;">'
+
+  // Check if the headers should be repeated
+  if (repeatHeader === true) {
+    dataset += '<thead>'
+  }
 
   // Check if the provided header is an arry (backward-compatibility for version below 3.3.0 - more info at: https://github.com/gharibi/JsObjExporter/issues/4)
   let columnFlex = 0
@@ -11,6 +16,11 @@ export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyl
       dataset += '<th style="' + headerStyle + '" >' + headers[j] + '</th>'
     }
     dataset += '</tr>'
+
+    // Check if the headers should be repeated
+    if (repeatHeader === true) {
+      dataset += '</thead>'
+    }
 
     // Construct the body elements
     for (let j = 0; j < exportable.length; j++) {
@@ -44,6 +54,11 @@ export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyl
     }
     dataset += '</tr>'
 
+    // Check if the headers should be repeated
+    if (repeatHeader === true) {
+      dataset += '</thead>'
+    }
+
     // Construct the body elements
     for (let j = 0; j < exportable.length; j++) {
       dataset += '<tr style="' + cellStyle + '">'
@@ -62,6 +77,7 @@ export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyl
       dataset += '</tr>'
     }
   }
+
   // Return the dataset
   return dataset
 }

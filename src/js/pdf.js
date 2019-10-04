@@ -2,11 +2,11 @@ import { htmlTblCreater } from './el'
 
 export default {
   export: (params) => {
-    exportObject2PDF(params.documentTitle, params.documentTitleStyle, params.headers, params.exportable, params.headerStyle, params.cellStyle)
+    exportObject2PDF(params.documentTitle, params.documentTitleStyle, params.headers, params.exportable, params.headerStyle, params.cellStyle, params.repeatHeader)
   }
 }
 
-function exportObject2PDF (documentTitle, documentTitleStyle, headers, exportable, headerStyle, cellStyle) {
+function exportObject2PDF (documentTitle, documentTitleStyle, headers, exportable, headerStyle, cellStyle, repeatHeader) {
   // Define a printable body element
   const printableBody = document.createElement('iframe')
 
@@ -31,7 +31,7 @@ function exportObject2PDF (documentTitle, documentTitleStyle, headers, exportabl
     // Check if there is document element
     if (printableDocument.document) printableDocument = printableDocument.document
     let printableDocumentContents = '<span style="' + documentTitleStyle + '">' + documentTitle + '</span><br>'
-    printableDocumentContents += htmlTblCreater('pdf', headers, exportable, headerStyle, cellStyle)
+    printableDocumentContents += htmlTblCreater('pdf', headers, exportable, headerStyle, cellStyle, repeatHeader)
     printableDocument.body.innerHTML = printableDocumentContents
 
     // Assign style to the printable

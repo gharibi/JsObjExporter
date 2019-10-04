@@ -30,7 +30,7 @@ const template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:
 function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle, sheetName, documentTitle, documentTitleStyle) {
   // Construct the html structure for the provided exportable
   let dataset = '<span style="' + documentTitleStyle + '">' + documentTitle + '</span><br>'
-  dataset += htmlTblCreater('xls', headers, exportable, headerStyle, cellStyle)
+  dataset += htmlTblCreater('xls', headers, exportable, headerStyle, cellStyle, false)
 
   // Push the file for being downloaded
   const ctx = { worksheet: sheetName, table: dataset }
