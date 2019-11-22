@@ -61,9 +61,9 @@ function convert2csv (objArray) {
   for (let i = 0; i < array.length; i++) {
     let line = ''
     for (const index in array[i]) {
-      if (line !== '') line += ';'
-      line += array[i][index]
+      line += array[i][index] + ';'
     }
+    line = line.substring(0, line.length - 1)
     str += line + '\r\n'
   }
   return str
