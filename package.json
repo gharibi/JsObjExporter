@@ -2,7 +2,7 @@
   "name": "object-exporter",
   "homepage": "https://github.com/gharibi",
   "description": "A javascript library to generate CSV, XLS, PDF or DOC out of JavaScript objects only on the frontend.",
-  "version": "3.4.4",
+  "version": "3.4.5",
   "main": "dist/objectexporter.min.js",
   "repository": "https://github.com/gharibi/JsObjExporter",
   "license": "MIT",
