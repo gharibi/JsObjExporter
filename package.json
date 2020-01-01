@@ -8,16 +8,16 @@
   "license": "MIT",
   "dependences": {},
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "babel-loader": "^8.0.6",
     "babel-preset-es2015": "^6.24.1",
     "file-saver": "^2.0.2",
     "install": "^0.13.0",
-    "npm": "^6.13.1",
+    "npm": "^6.13.4",
     "standard": "^14.3.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.41.2",
+    "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
   "scripts": {
