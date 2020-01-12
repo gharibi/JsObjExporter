@@ -4,6 +4,7 @@ import csv from './csv'
 import xls from './xls'
 import pdf from './pdf'
 import doc from './doc'
+import html from './html'
 
 export default {
   init () {
@@ -43,16 +44,16 @@ export default {
     }
 
     // Validate type
-    if (!params.exportable || typeof params.exportable !== 'object') {
+    if (!params.exportable) {
       throw new Error('Invalid exportable!')
     }
     if (!params.type || typeof params.type !== 'string') {
       throw new Error('Invalid exportable type! only string type is acceptable!')
     }
-    if (params.type.toLowerCase() !== 'csv' && params.type.toLowerCase() !== 'xls' && params.type.toLowerCase() !== 'pdf' && params.type.toLowerCase() !== 'doc') {
+    if (['csv', 'xls', 'pdf', 'doc', 'html'].includes(params.type.toLowerCase()) === false) {
       throw new Error('Invalid exportable type. Available types are "CSV", "XLS", "pdf" and "DOC".')
     }
-    if (typeof params.repeatHeader !== 'boolean') {
+    if (typeof params.repeatHeader !== 'boolean' && typeof params.repeatHeader !== 'undefined') {
       throw new Error('Invalid value for the repeat header parameter. Available types are "true" and "false".')
     }
 
@@ -69,6 +70,9 @@ export default {
         break
       case 'doc':
         doc.export(params)
+        break
+      case 'html':
+        html.export(params)
         break
     }
   }

@@ -6,13 +6,13 @@
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel="shortcut icon" href="#" />
-  <link rel='stylesheet' href='lib/bootstrap.min.css'>
-  <a href='https://github.com/gharibi/JsObjExporter'><img style='position: absolute; top: 0; right: 0; border: 0;' src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png'
-      alt='Fork me on GitHub'></a>
+  <link rel='stylesheet' href='lib/css/bootstrap.min.css'>
+  <a href='https://github.com/gharibi/JsObjExporter'><img style='position: absolute; top: 0; right: 0; border: 0;'
+      src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png' alt='Fork me on GitHub'></a>
   <script src='../dist/objectexporter.min.js'></script>
   <script src='lib/jquery-3.3.1.slim.min.js'></script>
   <script src='lib/popper.min.js'></script>
-  <script src='lib/bootstrap.min.js'></script>
+  <script src='lib/js/bootstrap.min.js'></script>
   <script>
     function object2xls() {
 
@@ -114,7 +114,7 @@
           flex: 1
         });
       }
-      
+
       // Generate the Pdf
       objectExporter({
         type: 'pdf',
@@ -162,7 +162,7 @@
         cellStyle: 'padding: 5px; border: 1px solid #dddddd;'
       })
     }
-    
+
     function createRandomString() {
       var text = '';
       var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -185,18 +185,26 @@
       document.getElementById('object2docBtnId').onclick = function click() {
         object2doc();
       }
+      document.getElementById('html2pdfBtnId').onclick = function click() {
+
+        // Generate the Pdf from the html section
+        objectExporter({
+          type: 'html',
+          exportable: document.getElementById('domId').value
+        })
+      }
     }
   </script>
   <div class='container'>
     <div class="jumbotron">
       <h2>Object-Exporter Example Page</h2>
-      <p>Below 4 examples illustrate how this plugin generates XLS, CSV, PDF and DOC only from
-        the frontend and without any communication to the backend!
+      <p>Below 5 examples illustrate how this plugin exports the randomly generated object to XLS, CSV, PDF, DOC and
+        only from the frontend and without any communication to the backend!
       </p>
     </div>
-    <div class='row'>
-      <div class='col-sm-3'>
-        <h3>export to XLS</h3>
+    <div class='row' id="html2pdfId">
+      <div class='col'>
+        <h3>JsObj to XLS</h3>
         <p>Please adjust the below inputs to generate a sample object and export it to XLS format:</p>
         <div class='container'>
           <div class='form-group'>
@@ -221,13 +229,14 @@
           </div>
           <div class='form-group'>
             <label>Content Style</label>
-            <input type='text' class='form-control form-control-lg' value='color:#000; font-size: 14;' id='documentTitleStyleInXls'>
+            <input type='text' class='form-control form-control-lg' value='color:#000; font-size: 14;'
+              id='documentTitleStyleInXls'>
           </div>
           <input type='button' class='btn btn-info' value='Generate XLS' id='object2xlsBtnId'>
         </div>
       </div>
-      <div class='col-sm-3'>
-        <h3>export to CSV</h3>
+      <div class='col'>
+        <h3>JsObj to CSV</h3>
         <p>Please adjust the below inputs to generate a sample object and export it to CSV format:</p>
         <div class='container'>
           <div class='form-group'>
@@ -241,8 +250,8 @@
           <input type='button' class='btn btn-info' value='Generate CSV' id='object2csvBtnId'>
         </div>
       </div>
-      <div class='col-sm-3'>
-        <h3>export to PDF</h3>
+      <div class='col'>
+        <h3>JsObj to PDF</h3>
         <p>Please adjust the below inputs to generate a sample PDF file:</p>
         <div class='container'>
           <div class='form-group'>
@@ -256,8 +265,8 @@
           <input type='button' class='btn btn-info' value='Generate PDF' id='object2pdfBtnId'>
         </div>
       </div>
-      <div class='col-sm-3'>
-        <h3>export to DOC</h3>
+      <div class='col'>
+        <h3>JsObj to DOC</h3>
         <p>Please adjust the below inputs to generate a sample DOC file:</p>
         <div class='container'>
           <div class='form-group'>
@@ -269,6 +278,17 @@
             <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInDoc'>
           </div>
           <input type='button' class='btn btn-info' value='Generate DOC' id='object2docBtnId'>
+        </div>
+      </div>
+      <div class='col' id="test">
+        <h3>HTML to PDF</h3>
+        <p>Please adjust the below input to generate a sample PDF file:</p>
+        <div class='container'>
+          <div class='form-group'>
+            <label>DOM Id:</label>
+            <input type='text' class='form-control form-control-lg' value='html2pdfId' id='domId'>
+          </div>
+          <input type='button' class='btn btn-info' value='Generate PDF' id='html2pdfBtnId'>
         </div>
       </div>
     </div>
