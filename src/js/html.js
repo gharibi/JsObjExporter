@@ -18,7 +18,7 @@ export default {
     const exportableFrame = placeholder.generateFrame(params, elementDom.innerHTML)
 
     // Cleanup the DOM from the exportable frame
-    if (document.getElementById('jsObjExporterFrameId')) document.getElementById('testFrame').remove()
+    if (document.getElementById('jsObjExporterFrameId')) document.getElementById('jsObjExporterFrameId').remove()
 
     // Attach the exportable frame to the document body
     document.getElementsByTagName('body')[0].appendChild(exportableFrame)
