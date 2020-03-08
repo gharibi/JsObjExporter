@@ -2,7 +2,7 @@ const Blob = require('blob')
 
 export default {
   export: (params) => {
-    exportObject2CSV(params.headers, params.exportable, params.fileName)
+    exportObject2CSV(params.headers, params.exportable, params.fileName, params.columnSeparator)
   }
 }
 
@@ -12,7 +12,7 @@ export default {
  * @param  {object} exportable the records of csv file.
  * @param  {string} fileName the title of the file which needs to be exported.
  */
-function exportObject2CSV (headers, exportable, fileName) {
+function exportObject2CSV (headers, exportable, fileName, columnSeparator) {
   // Check if there is headers provided
   if (headers) {
     // Check if the provided header is an arry (backward-compatibility for version below 3.3.0 - more info at: https://github.com/gharibi/JsObjExporter/issues/4)
@@ -29,7 +29,7 @@ function exportObject2CSV (headers, exportable, fileName) {
 
   // Convert Object to JSON
   const jsonObject = JSON.stringify(exportable)
-  const csv = convert2csv(jsonObject)
+  const csv = convert2csv(jsonObject,columnSeparator)
   const exportFileName = fileName + '.csv'
   const blob = new Blob([csv], {
     type: 'text/csv;charset=utf-8;'
@@ -55,13 +55,14 @@ function exportObject2CSV (headers, exportable, fileName) {
  * Function to create an object of arrays to csv.
  * @param  {object} objArray the json data which needs to be converted to an array.
  */
-function convert2csv (objArray) {
+function convert2csv (objArray, columnSeparator) {
+  If(!columnSeparator){columnSeparator=';';
   const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray
   let str = ''
   for (let i = 0; i < array.length; i++) {
     let line = ''
     for (const index in array[i]) {
-      line += array[i][index] + ';'
+      line += array[i][index] + columnSeparator
     }
     line = line.substring(0, line.length - 1)
     str += line + '\r\n'
