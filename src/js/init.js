@@ -19,7 +19,7 @@ export default {
       documentTitle: 'test document title',
       documentTitleStyle: 'color:red;',
       repeatHeader: true,
-      ColumnSeparator: ','
+      columnSeparator: ','
     }
 
     // Check if an exportable document or object was supplied
