@@ -56,7 +56,6 @@ function exportObject2CSV (headers, exportable, fileName, columnSeparator) {
  * @param  {object} objArray the json data which needs to be converted to an array.
  */
 function convert2csv (objArray, columnSeparator) {
-  If(!columnSeparator){columnSeparator=';';
   const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray
   let str = ''
   for (let i = 0; i < array.length; i++) {
