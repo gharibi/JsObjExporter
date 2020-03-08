@@ -11,6 +11,7 @@ export default {
  * @param  {array} headers the columns of the csv file.
  * @param  {object} exportable the records of csv file.
  * @param  {string} fileName the title of the file which needs to be exported.
+ * @param  {char} columnSeparator the character that separates one colum from another.
  */
 function exportObject2CSV (headers, exportable, fileName, columnSeparator) {
   // Check if there is headers provided
@@ -54,6 +55,7 @@ function exportObject2CSV (headers, exportable, fileName, columnSeparator) {
 /**
  * Function to create an object of arrays to csv.
  * @param  {object} objArray the json data which needs to be converted to an array.
+ * @param  {char} columnSeparator the character that separates one column from another.
  */
 function convert2csv (objArray, columnSeparator) {
   const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray
