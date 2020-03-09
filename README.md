@@ -26,7 +26,7 @@ In order use this library, follow the below steps:
 <script src='<path>/objectexporter.min.js'></script>
 ```
 
-2. Paste the following to your `JavaScript` code and provide the required values mentioend below:
+2. Paste the following to your `JavaScript` code and provide the required values as mentioned below:
 
 ```
 objectExporter({
@@ -43,7 +43,8 @@ objectExporter({
     sheetName: <string>, // The sheet name containing the exported exportables
     documentTitle: <string>, // The document title which should be added to the printable
     documentTitleStyle: <cssStyle>, // The style which can be applied to the document header
-    repeatHeader: <boolean> // The table header repeat parameter
+    repeatHeader: <boolean>, // The table header repeat parameter
+    columnSeparator: <char|string> // The expected column column separator in csv export
 })
 ```
 
@@ -62,6 +63,7 @@ ObjectExporter currently supports the below arguments:
 | documentTitle | string | no | test document title | any string | This specifies the exportable file title. | pdf and doc |
 | documentTitleStyle | string | no | color:red; | any string | This specifies the style for the document title. | pdf and doc |
 | repeatHeader | boolean | no | true | any string | This specifies the exportable header, whether it should be repeated accross various pages. | pdf and doc |
+| columnSeparator | char/string | no | , | any string or character | This specifies the column separator in csv export | csv |
 
 (1) In versions older than 3.3.0, `header` was defined as an array and not an array of objects. However from version 3.3.0, the library is backward-comptible, therefore array or array of objects, both are accepted.
 
