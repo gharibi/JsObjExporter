@@ -39,7 +39,7 @@ export default {
         params.documentTitle = typeof args.documentTitle !== 'undefined' ? args.documentTitle : params.documentTitle
         params.documentTitleStyle = typeof args.documentTitleStyle !== 'undefined' ? args.documentTitleStyle : params.documentTitleStyle
         params.repeatHeader = typeof args.repeatHeader !== 'undefined' ? args.repeatHeader : params.repeatHeader
-        Params.columnSeperator = typeof args.columnSeparator !== 'undefined' ? args.columnSeparator : params.columnSeparator
+        params.columnSeparator = typeof args.columnSeparator !== 'undefined' ? args.columnSeparator : params.columnSeparator
         break
       default:
         throw new Error('Unexpected argument type! Expected "object", got ' + typeof args)
