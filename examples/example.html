@@ -61,6 +61,7 @@
       // Retrieve the user inputs
       var numberOfColumnsInCsv = document.getElementById('numberOfColumnsInCsv').value;
       var numberOfRecordsInCsv = document.getElementById('numberOfRecordsInCsv').value;
+      var columnSeperatorInCsv = document.getElementById('columnSeperatorInCsv').value;
 
       // Construct the dataset for CSV
       var data = [];
@@ -85,7 +86,8 @@
       objectExporter({
         type: 'csv',
         exportable: data,
-        headers: headers
+        headers: headers,
+        columnSeparator: columnSeperatorInCsv
       })
     }
 
@@ -246,6 +248,10 @@
           <div class='form-group'>
             <label>Number of records in CSV</label>
             <input type='text' class='form-control form-control-lg' value=10 id='numberOfRecordsInCsv'>
+          </div>
+          <div class='form-group'>
+            <label>Column Seperator in CSV</label>
+            <input type='text' class='form-control form-control-lg' value=',' id='columnSeperatorInCsv'>
           </div>
           <input type='button' class='btn btn-info' value='Generate CSV' id='object2csvBtnId'>
         </div>
