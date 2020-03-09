@@ -30,7 +30,7 @@ function exportObject2CSV (headers, exportable, fileName, columnSeparator) {
 
   // Convert Object to JSON
   const jsonObject = JSON.stringify(exportable)
-  const csv = convert2csv(jsonObject,columnSeparator)
+  const csv = convert2csv(jsonObject, columnSeparator)
   const exportFileName = fileName + '.csv'
   const blob = new Blob([csv], {
     type: 'text/csv;charset=utf-8;'
