@@ -1,4 +1,5 @@
 import { htmlTblCreater } from './el'
+const { detect } = require('detect-browser')
 
 export default {
   export: (params) => {
@@ -25,6 +26,9 @@ function exportObject2PDF (documentTitle, documentTitleStyle, headers, exportabl
 
   // Check when the printableBody is loaded successfully
   printableBody.onload = () => {
+    // Detect the browser information
+    const browser = detect()
+
     // Define a printable document
     let printableDocument = (printableElements.contentWindow || printableElements.contentDocument)
 
@@ -41,6 +45,13 @@ function exportObject2PDF (documentTitle, documentTitleStyle, headers, exportabl
 
     // Prepare the printable for the print
     printableElements.focus()
-    printableElements.contentWindow.document.execCommand('print', false, null)
+
+    // Check the if the browser is Edge or Internet Explorer
+    if (browser.name === 'edge' || browser.name === 'ie') {
+      printableElements.contentWindow.document.execCommand('print', false, null)
+    } else {
+      // All other browsers
+      printableElements.contentWindow.print()
+    }
   }
 }
