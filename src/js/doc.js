@@ -1,6 +1,5 @@
 import { saveAs } from 'file-saver'
 import { htmlTblCreater } from './el'
-const Blob = require('blob')
 
 export default {
   export: (params) => {

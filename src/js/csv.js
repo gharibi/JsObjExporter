@@ -1,5 +1,3 @@
-const Blob = require('blob')
-
 export default {
   export: (params) => {
     exportObject2CSV(params.headers, params.exportable, params.fileName, params.columnSeparator)
