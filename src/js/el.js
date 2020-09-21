@@ -9,7 +9,7 @@ export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyl
 
   // Check if the provided header is an arry (backward-compatibility for version below 3.3.0 - more info at: https://github.com/gharibi/JsObjExporter/issues/4)
   let columnFlex = 0
-  if (headers[0].constructor.name !== 'Object') {
+  if (typeof headers[0] !== 'object') {
     // Construct the table headers
     dataset += '<tr>'
     for (let j = 0; j < headers.length; j++) {

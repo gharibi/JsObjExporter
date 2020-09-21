@@ -52,7 +52,7 @@ export default {
     if (!params.type || typeof params.type !== 'string') {
       throw new Error('Invalid exportable type! only string type is acceptable!')
     }
-    if (['csv', 'xls', 'pdf', 'doc', 'html'].includes(params.type.toLowerCase()) === false) {
+    if (['csv', 'xls', 'pdf', 'doc', 'html'].indexOf(params.type.toLowerCase()) === -1) {
       throw new Error('Invalid exportable type. Available types are "CSV", "XLS", "pdf" and "DOC".')
     }
     if (typeof params.repeatHeader !== 'boolean' && typeof params.repeatHeader !== 'undefined') {

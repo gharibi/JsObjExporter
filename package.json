@@ -2,7 +2,7 @@
   "name": "object-exporter",
   "homepage": "https://github.com/gharibi",
   "description": "A little JavaScript plugin to generate PDF, XLS, CSV and DOC from JavaScript Object or DOM element only from the frontend!",
-  "version": "3.5.2",
+  "version": "3.6.0",
   "main": "dist/objectexporter.min.js",
   "repository": "https://github.com/gharibi/JsObjExporter",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "npm": "^6.14.8",
     "standard": "^14.3.4",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.44.1",
+    "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
   "scripts": {

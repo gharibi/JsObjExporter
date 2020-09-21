@@ -15,7 +15,7 @@ function exportObject2CSV (headers, exportable, fileName, columnSeparator) {
   // Check if there is headers provided
   if (headers) {
     // Check if the provided header is an arry (backward-compatibility for version below 3.3.0 - more info at: https://github.com/gharibi/JsObjExporter/issues/4)
-    if (headers[0].constructor.name !== 'Object') {
+    if (typeof headers[0] !== 'object') {
       exportable.unshift(headers)
     } else {
       const headerDataset = {}

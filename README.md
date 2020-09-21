@@ -5,9 +5,9 @@
 
 A little JavaScript plugin to generate PDF, XLS, CSV and DOC from JavaScript Object or DOM element only from the frontend!
 
-## Example
+## Demo
 
-Please navigate to the following example to test this library: [Example Page](http://gharibi.github.io/JsObjExporter/examples/example.html)
+Please navigate to the following demo to test this library: [Demo Page](http://gharibi.github.io/JsObjExporter/examples/example.html)
 
 ## Installation
 
