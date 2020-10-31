@@ -1,4 +1,5 @@
 import { htmlTblCreater } from './el'
+const { detect } = require('detect-browser')
 
 export default {
   export: (params) => {
@@ -39,7 +40,22 @@ function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle
   link.setAttribute('href', uri + base64(format(template, ctx)))
   link.setAttribute('download', exportFileName)
   link.style.visibility = 'hidden'
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
+
+  // Detect the browser information
+  const browser = detect()
+
+  // Check the if the browser is Edge or Internet Explorer
+  if (browser.name === 'edge' || browser.name === 'ie') {
+    if (window.navigator.msSaveBlob) {
+      const blob = new Blob([dataset], {
+          type: "data:application/vnd.ms-excel;"
+      });
+      navigator.msSaveBlob(blob, exportFileName);
+    }
+  } else {
+    // All other browsers
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 }
