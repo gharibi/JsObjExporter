@@ -48,9 +48,9 @@ function exportObject2XLS (headers, exportable, fileName, headerStyle, cellStyle
   if (browser.name === 'edge' || browser.name === 'ie') {
     if (window.navigator.msSaveBlob) {
       const blob = new Blob([dataset], {
-          type: "data:application/vnd.ms-excel;"
-      });
-      navigator.msSaveBlob(blob, exportFileName);
+        type: 'data:application/vnd.ms-excel;'
+      })
+      navigator.msSaveBlob(blob, exportFileName)
     }
   } else {
     // All other browsers
