@@ -66,13 +66,9 @@ export function htmlTblCreater (type, headers, exportable, headerStyle, cellStyl
       for (let k = 0; k < headers.length; k++) {
         // Check if the input string is HTML, if so, do not add the cell tags
         const cellContents = exportable[j][headers[k].name]
-        if (/<[a-z][\s\S]*>/i.test(cellContents) === true) {
-          dataset += cellContents
-        } else {
-          dataset += '<td style="' + cellStyle + '" ' + (function () {
-            return (type.toLowerCase() === 'csv') ? 'width="' + (headers[k].flex / columnFlex) * 100 + '%;"' : ''
-          })() + ' >' + cellContents + '</td>'
-        }
+        dataset += '<td style="' + cellStyle + '" ' + (function () {
+          return (type.toLowerCase() === 'csv') ? 'width="' + (headers[k].flex / columnFlex) * 100 + '%;"' : ''
+        })() + ' >' + cellContents + '</td>'
       }
       dataset += '</tr>'
     }
