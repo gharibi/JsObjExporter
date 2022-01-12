@@ -1,5 +1,4 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   watch: true,
@@ -24,14 +23,6 @@ module.exports = {
     ]
 },
   optimization: {
-    minimize: true,
-    minimizer: [new UglifyJsPlugin({
-      include: /\.min\.js$/,
-      uglifyOptions: {
-        output: {
-          comments: false
-        }
-      }
-    })]
+    minimize: true
   }
 };
