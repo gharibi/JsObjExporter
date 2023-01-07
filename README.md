@@ -92,11 +92,11 @@ httpserver
 ```
 
 Then navigate to:
-`http://localhost:8080/test.html`
+`http://localhost:8080/examples/example.html`
 
 5. Now make your changes in the library.
 
-6. Keep checking `test.html` after any changes and make sure the library is working fine. In case you add new features, feel free to add/modify tests:
+6. Keep checking `example.html` after any changes and make sure the library is working fine. In case you add new features, feel free to add/modify tests:
 
 7. Once you are done, check your code style by:
 ```
