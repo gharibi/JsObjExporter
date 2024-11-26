@@ -8,17 +8,17 @@
   "license": "MIT",
   "dependences": {},
   "devDependencies": {
-    "@babel/core": "^7.24.7",
+    "@babel/core": "^7.26.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
-    "@babel/preset-env": "^7.24.7",
-    "babel-loader": "^9.1.3",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
     "babel-preset-es2015": "^6.24.1",
     "detect-browser": "^5.3.0",
     "file-saver": "^2.0.5",
     "install": "^0.13.0",
-    "npm": "^10.8.1",
-    "standard": "^17.1.0",
-    "webpack": "^5.92.0",
+    "npm": "^10.9.1",
+    "standard": "^17.1.2",
+    "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
